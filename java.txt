@@ -1,0 +1,1354 @@
+Session 1 / Classes and Objects IA <Player>
+
+
+import java.util.*;
+
+class Player{      
+    String name; 
+    String country;
+    String skill;
+}
+class Main{
+     public static void main(String args[]){
+         Player p = new Player();
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the player name");
+    p.name = sc.nextLine();
+    System.out.println("Enter the country name");
+    p.country = sc.nextLine();
+    System.out.println("Enter the skill");
+    p.skill = sc.nextLine();
+    System.out.print("Player Details :\nPlayer Name : " + p.name );
+    System.out.print("Country Name : "+p.country);
+    System.out.print("\nSkill : "+p.skill);
+        }
+}
+ -------------------------------------------------------------------------------------------------
+                                     Venue
+import java.util.*;
+
+class Venue{      
+    String name; 
+    String city;
+    String skill;
+}
+class Main{
+     public static void main(String args[]){
+    Venue p = new Venue();
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the venue name");
+    p.name = sc.nextLine();
+    System.out.println("Enter the city name");
+    p.city = sc.nextLine();
+    System.out.print("Venue Details :\nVenue Name : " + p.name );
+    System.out.print("\nCity Name : "+p.city);
+    //System.out.print("\nSkill : "+p.skill);
+    }
+}
+-----------------------------------------------------------------------------------------------------
+        Session 2 / Classes and Objects IB<TEAM>
+import java.io.*;
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                Team t = new Team();
+                System.out.println("Enter the team name"); 
+                String te = br.readLine();
+                System.out.println("Enter the coach name"); 
+                String c = br.readLine();
+                System.out.println("Enter the location name");
+                String l = br.readLine(); 
+                System.out.println("Enter the players name");
+                String p = br.readLine();
+                System.out.println("Enter the captain name");
+                String ca = br.readLine();
+                t.setName(te);
+                t.setCoach(c);
+                t.setLocation(l);
+                t.setPlayers(p);
+                t.setCaptain(ca);
+                t.displayTeamDetails();
+        }
+}
+
+class Team {
+        private String name; 
+        private String coach; 
+        private String location; 
+        private String  players ;
+        private String  captain ;
+
+
+        public Team() {
+                super();
+        }
+
+        public Team(String name, String coach, String location, String players, String captain) {
+                super();
+                this.name = name;
+                this.coach = coach;
+                this.location = location;
+                this.players = players;
+                this.captain = captain;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public String getCoach() {
+                return coach;
+        }
+
+        public void setCoach(String coach) {
+                this.coach = coach;
+        }
+
+        public String getLocation() {
+                return location;
+        }
+
+        public void setLocation(String location) {
+                this.location = location;
+        }
+
+        public String getPlayers() {
+                return players;
+        }
+
+        public void setPlayers(String players) {
+                this.players = players;
+        }
+
+        public String getCaptain() {
+                return captain;
+        }
+
+        public void setCaptain(String captain) {
+                this.captain = captain;
+        }
+
+        public void displayTeamDetails() {
+                System.out.println("Team Details"); 
+                System.out.println("Team : "+getName()); 
+                System.out.println("Coach : "+getCoach()); 
+                System.out.println("Location : "+getLocation());
+                System.out.println("Players : "+getPlayers());
+                System.out.println("Captain : "+getCaptain());
+        }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Classes and Objects II/Session 1/Learn to Code 1<Venue Details>
+
+import java.io.*;
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args)  throws IOException
+    {       
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the number of venues");
+        int n=Integer.parseInt(br.readLine());
+        String s[] = new String[n];
+        Venue v[] = new Venue[n];
+        for (int i = 0; i < n; i++) {
+                int x =1+i;
+        v[i] = new Venue();
+                        System.out.println("Enter the details of venue "+ x);
+                        s[i]=br.readLine();
+                        String s1[]= s[i].split(",");
+                        v[i].setCity(s1[1]);
+                v[i].setName(s1[0]);
+                }
+       System.out.println("Venue Details");
+       for (int i = 0; i < n; i++) {
+       System.out.println("Venue Name : "+v[i].getName());
+       System.out.println("City Name : "+v[i].getCity());
+       }
+        }
+}
+class Venue{
+        private String name;
+        private String city;
+        public Venue() {
+                super();
+        }
+        public Venue(String name, String city) {
+                super();
+                this.name = name;
+                this.city = city;
+        }
+        public String getName() {
+                return name;
+        }
+        public void setName(String name) {
+                this.name = name;
+        }
+        public String getCity() {
+                return city;
+        }
+        public void setCity(String city) {
+                this.city = city;
+        }
+
+}
+----------------------------------------------------------------------------------------------------------
+Classes and Objects II/Sesson 2/Learn to Code 2  <Check Player Detail>
+import java.io.*;
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                Player p[] = new Player[2];
+
+                for (int i = 0; i < p.length; i++) {
+                        int x = i+1;
+                        p[i] = new Player();
+                        System.out.println("Enter the player " +x+" details\nEnter the player name");
+                        String n = br.readLine();
+                        p[i].setName(n);
+                        System.out.println("Enter the country name");
+                        String c = br.readLine();
+                        p[i].setCountry(c);
+                        System.out.println("Enter the skill");
+                        String sk = br.readLine();
+                        p[i].setSkill(sk);
+                        System.out.println(p[i]);
+                }
+                if (p[0].equals(p[1])) {
+                        System.out.println("Both the player details are same.");
+                } else {
+                        System.out.println("Both the player details are not same.");
+                }
+        }
+}
+
+class Player {
+    String name;
+        String country;
+        String skill;
+
+        public Player() {
+                super();
+        }
+
+        public Player(String name, String country, String skill) {
+                super();
+                this.name = name;
+                this.country = country;
+                this.skill = skill;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public String getCountry() {
+                return country;
+        }
+
+        public void setCountry(String country) {
+                this.country = country;
+        }
+
+        public String getSkill() {
+                return skill;
+        }
+
+        public void setSkill(String skill) {
+                this.skill = skill;
+        }
+
+        @Override
+        public String toString() {
+                String s = name + " --- " + country + " --- " + skill;
+                return s;
+        }
+        @Override
+        public boolean equals(Object obj) {
+        Player p = (Player)obj;
+            if(this.skill.equals(p.skill) && this.name.equals(p.name) && this.country.equals(p.country))
+                         return true;
+
+                 else
+                         return false;
+        }
+        }
+
+---------------------------------------------------------------------------------------------------------------------------
+        Method Overriding, Method Overloading session 1<Player-International Player>
+
+//Class Player
+public class Player {
+        protected String name;
+                protected String country;
+
+
+                public Player(String name, String country) {
+                        super();
+                        this.name = name;
+                        this.country = country;
+                }
+
+                public Player() {
+                        // TODO Auto-generated constructor stub
+                }
+                 public void displayDetails(String name, String country) {
+
+                 }
+        }
+/////class InternationalPlayer
+
+
+class InternationalPlayer extends Player {
+
+    protected String capNumber;
+    protected Long noOfTestAppearance;
+        protected Long noOfODIAppearance;
+
+     public InternationalPlayer() {
+                super();
+        }
+
+        public InternationalPlayer(String name, String country, String capNumber, Long noOfTestAppearance, Long noOfODIAppearance) {
+                super(name, country);
+                this.capNumber = capNumber;
+                this.noOfTestAppearance = noOfTestAppearance;
+                this.noOfODIAppearance = noOfODIAppearance;
+        }
+
+         public void displayDetails () {
+                 System.out.println("Player Details:"); 
+                 System.out.println("Player name : "+name);
+                 System.out.println("Country : "+country);
+                 System.out.println("Cap number : "+capNumber);
+                 System.out.println("Number of test appearnace : "+noOfTestAppearance);
+                 System.out.println("Number of ODI appearnace : "+noOfODIAppearance);
+         }
+}
+
+/////Class Main
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter player name ");
+        String name = br.readLine();
+        System.out.println("Enter player country");
+        String country = br.readLine();
+        System.out.println("Enter the Cap number");
+        String capNumber = br.readLine();
+        System.out.println("Enter the number of test appearnace");
+        Long noOfTestAppearance =  Long.parseLong(br.readLine());
+        System.out.println("Enter the number of ODI appearnace");
+        Long noOfODIAppearance = Long.parseLong(br.readLine());
+
+            InternationalPlayer internationalPlayer =new InternationalPlayer(name,country,capNumber,noOfTestAppearance,noOfODIAppearance);
+
+//      internationalPlayer.displayDetails(name, country, capNumber, noOfTestAppearance, noOfODIAppearance);
+ internationalPlayer.displayDetails(); 
+}
+}
+-----------------------------------------------------------------------------------------------------------
+ Exception Handling – Session 1<Exception 2(ArrayIndexOutOfBoundsException And NegativeArraySizeException)>
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+       int over = 0;
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+           System.out.println("Enter the number of overs");
+           try {
+          over = Integer.parseInt(br.readLine());
+           int r[] = new int[over];
+       over = over+1;
+      int run[] = new int[over];
+        System.out.println("Enter the number of runs for each over");
+           for (int i = 1; i < over; i++) {
+                   run[i]=Integer.parseInt(br.readLine());
+        }
+           System.out.println("Enter the over number");
+           int overNo = Integer.parseInt(br.readLine());
+                   System.out.println(run[overNo]);
+   }
+           catch (ArrayIndexOutOfBoundsException e1) {
+                System.out.println("java.lang.ArrayIndexOutOfBoundsException");
+        }
+          catch (NegativeArraySizeException e) {
+                        System.out.println("java.lang.NegativeArraySizeException");
+           }
+
+}
+}
+
+
+        ---------------------------------------------------------------------------------------------------------------
+Exception Handling -1(Arithmetic exception and Number format exception)
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+
+import javax.swing.text.DateFormatter; 
+public class Main{
+   public static void main(String[] args) throws IOException {
+       float rr =0.00f;
+           BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+           System.out.println("Enter the total runs scored");
+        try {
+           int run = Integer.parseInt(br.readLine());
+           System.out.println("Enter the total overs faced");
+           int over = Integer.parseInt(br.readLine());
+                int rrd = run/over;
+                rr= (float)run/(float)over;
+                 System.out.println("Current Run Rate : "+ String.format("%.2f", rr));
+           }
+           catch (ArithmeticException e) {
+                System.out.println("java.lang.ArithmeticException");
+                   }
+           catch (Exception e) {
+                System.out.println("java.lang.NumberFormatException");
+        }
+
+}
+}
+---------------------------------------------------------------------------------------------------------------------
+        Collections / Generics, Lists / Session 2 <Duck - batsman's dismissal>
+
+import java.io.*;
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) throws IOException {
+        int z =0;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int x = Integer.parseInt(br.readLine());
+        ArrayList<String> aList = new ArrayList<>();
+        for (int i = 0; i < x; i++) {
+                        String y = br.readLine();
+                        aList.add(y);
+                }
+
+        for(String name:aList) {
+
+                String score=name.substring(name.indexOf('-'));
+            String n = name.substring(0,name.indexOf('-'));
+                //System.out.println(score);
+                String v="-0-0";
+        //      System.out.println(v);
+                if(score.equals(v)) {
+                z++;
+                        System.out.println(n);
+                }
+
+        }
+
+    /*  for (String string : aList) {
+                        String a[] = string.split("-");
+                        //System.out.println(a[0]+" " +a[1]+" "+a[2]);
+                        if((a[1].equals("0"))&& (a[2].equals("0"))) {
+                                System.out.println(a[0]);
+                                z++;
+                        }
+                }*/
+        if(z==0) {
+                System.out.println("No player has scored a duck");
+        }
+
+
+         }
+}
+-----------------------------------------------------------------------------------------------
+Odd-Even Index
+
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        int z =0;
+        int a=0;
+        //int b =0;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int x = Integer.parseInt(br.readLine());
+    //  x =x+1;
+        ArrayList<Integer> aList = new ArrayList<>();
+        for (int i = 0; i < x; i++) {
+                        int y = Integer.parseInt(br.readLine());
+                        aList.add(y);
+                }
+        for (int i = 0; i < x; i=i+2) {
+                z = aList.get(i);
+                if(z%2==0)
+                a+=z;
+                }
+        for (int i = 1; i < x; i=i+2) {
+                z = aList.get(i);
+                if(z%2!=0)
+                a+=z;
+                }
+        System.out.println(a);
+
+
+         }
+}
+----------------------------------------------------------------------------------------------------------
+Sum Scores in Even Position
+import java.io.*;
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) throws IOException {
+        int z =0;
+        int a=0;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int x = Integer.parseInt(br.readLine());
+        ArrayList<Integer> aList = new ArrayList<>();
+        for (int i = 0; i < x; i++) {
+                        int y = Integer.parseInt(br.readLine());
+                        aList.add(y);
+                }
+        for (int i = 1; i < x; i=i+2) {
+                z = aList.get(i);
+
+                a+=z;
+                }
+        System.out.println(a);
+
+
+         }
+}
+-----------------------------------------------------------------------------------------------------------------------
+        Collections / Generics, Lists / Session 1 <List 1>+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+           int n = Integer.parseInt(br.readLine());
+           float total =  0;
+           ArrayList<Integer> aList = new ArrayList<>();
+           for(int i =0;i<n;i++) {
+                   int x = Integer.parseInt(br.readLine());
+                   aList.add(x);
+           }
+           Integer [] arr = new Integer[aList.size()];
+                aList.toArray(arr);
+           for(int i =0;i<arr.length;i++) {
+                        total += arr[i];
+                }
+           int t = (int)total;
+           System.out.println(t);
+           System.out.println(total/n);
+
+
+}
+}
+---------------------------------------------------------------------------------------------------------------------
+LIst 2
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       int n = Integer.parseInt(br.readLine());
+           float total =  0;
+           ArrayList<Integer> aList = new ArrayList<>();
+           for(int i =0;i<n;i++) {
+                   int x = Integer.parseInt(br.readLine());
+                   aList.add(x);
+           }
+            Collections.sort(aList);
+        for(Integer s1: aList) {
+                   System.out.println(s1);
+                   }
+           }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+List 3
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       int n = Integer.parseInt(br.readLine());
+       float total =  0;
+       ArrayList<String> aList = new ArrayList<>();
+           for(int i =0;i<n;i++) {
+                   String x = br.readLine();
+                   aList.add(x);
+           }
+           int count =0;
+           String na =br.readLine();
+           for (String s : aList) {
+                if(na.equalsIgnoreCase(s)) {
+                        count++;
+                }
+        }
+           System.out.println(count);
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+List 4 
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       System.out.println("Enter the team name");
+       String team = br.readLine();
+       System.out.println("Enter the number of matches played in home ground");
+       int n = Integer.parseInt(br.readLine());
+       System.out.println("Enter the runs scored");
+       ArrayList<Integer> aList = new ArrayList<>();
+           for(int i =0;i<n;i++) {
+                   int x = Integer.parseInt(br.readLine());
+                   aList.add(x);
+           }
+           System.out.println("Enter the number of matches played in other ground");
+           int og = Integer.parseInt(br.readLine());
+           System.out.println("Enter the runs scored");
+           for(int i =0;i<og;i++) {
+                   int x = Integer.parseInt(br.readLine());
+                   aList.add(x);
+           }
+
+           System.out.println("Runs scored by "+team);
+           for (Integer integer : aList) {
+                System.out.println(integer);
+        }
+    System.out.println("Run scored by "+ team +" more than 300");
+       for (Integer integer : aList) {
+                   if(integer>300)
+                        System.out.println(integer);
+                }
+}
+}
+---------------------------------------------------------------------------------------------------
+List 5
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+       System.out.println("Enter the top 5 scorers of IPL Season 8");
+       ArrayList<String> aList = new ArrayList<>();
+           for(int i =0;i<5;i++) {
+                   String x = br.readLine();
+                   aList.add(x);
+           }
+
+
+           System.out.println("Enter the top 5 scorers of IPL Season 9");
+           ArrayList<String> aList1 = new ArrayList<>();
+           for(int i =0;i<5;i++) {
+                  String x = br.readLine();
+                   aList1.add(x);
+           }
+           String [] arr = new String[aList.size()];
+                aList.toArray(arr);
+                String [] arr1 = new String[aList.size()];
+                aList1.toArray(arr1);
+           System.out.println("Consistent run scorers");
+           for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr1.length; j++) {
+                        if(arr[i].equalsIgnoreCase(arr1[j])) {
+                                System.out.println(arr[i]);
+                        }
+                }
+        }
+
+
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+List 6
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+       System.out.println("Enter the teams in ranking table");
+       ArrayList<String> aList = new ArrayList<>();
+           for(int i =0;i<5;i++) {
+                   String x = br.readLine();
+                   aList.add(x);
+           }
+           System.out.println("Enter the rank to be searched");
+           int t = Integer.parseInt(br.readLine());
+             t = t-1;
+           System.out.println(aList.get(t));
+   }
+}
+----------------------------------------------------------------------------------------------------------------------
+List 7
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+       ArrayList<String> aList = new ArrayList<>();
+           for(int i =0;i<5;i++) {
+                   String x = br.readLine();
+                   aList.add(x);
+           }
+           System.out.println("Enter swap positons");
+           int a = Integer.parseInt(br.readLine());
+           int b = Integer.parseInt(br.readLine());
+           b = b-1;
+           String s = aList.get(a);
+           aList.remove(a);
+           aList.add(a,aList.get(b));
+           aList.remove(b+1);
+           aList.add(b+1,s);
+           for (String string : aList) {
+           System.out.println(string);
+        }
+   }
+}
+-------------------------------------------------------------------------------------------------------------
+List 8
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.*;
+
+import org.omg.PortableInterceptor.INACTIVE;
+public class Main{
+   public static void main(String[] args) throws IOException {
+
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       ArrayList<String> aList = new ArrayList<>();
+         System.out.println("Enter the player details");
+         System.out.println("Enter player name");
+         String name = br.readLine();
+         aList.add(name);
+         System.out.println("Enter age");
+         String age = br.readLine();
+         aList.add(age);
+         System.out.println("Enter Country");
+         String country = br.readLine();
+         aList.add(country);
+         System.out.println("Player Details");
+         for (String string : aList) {
+                System.out.println(string);
+        }
+         System.out.println("Enter Skill");
+         String skill = br.readLine();
+         System.out.println("Enter the position to add the skill");
+         int p = Integer.parseInt(br.readLine());
+         aList.set(p, skill);
+      System.out.println("Player Details");
+      for (String string : aList) {
+                System.out.println(string);
+                }
+          System.out.println("Enter the position of the detail to be removed");
+          int r = Integer.parseInt(br.readLine());
+          aList.remove(r);
+        System.out.println("Player Details");
+          for (String string : aList) {
+                        System.out.println(string);
+                }
+
+
+   }
+}
+--------------------------------------------------------------------------------------------------------------------------
+ String Buffer, String Builder, String Tokenizer, String Splitting / Session 1<Player Team>
+import java.io.*;
+
+public class Main {
+    static void display(String name ,String team){
+
+                System.out.println(name+"#"+team);
+
+        }
+        public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                System.out.println("Enter the player name");
+                String name = br.readLine();
+                System.out.println("Enter the team name");
+                String team = br.readLine();
+
+                Main.display(name, team);
+
+        }
+
+}
+-----------------------------------------------------------------------------------------
+String Builder 1
+
+import java.io.*;
+
+public class Main {
+    static void display(String name ,String team){
+                StringBuilder s = new StringBuilder(name);
+                StringBuilder f = new StringBuilder(team);
+                for (int i = 0; i < s.length(); i++) {
+                        if(i==0){
+                                System.out.print("\n"+Character.toUpperCase(s.charAt(i)));
+                        }else
+                        System.out.print(Character.toLowerCase(s.charAt(i)));
+                }
+                System.out.print(" ");
+                for (int i = 0; i < f.length(); i++) {
+                        System.out.print(Character.toUpperCase(f.charAt(i)));
+                }               
+        }
+        public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String f = br.readLine();
+                String s = br.readLine();
+
+                Main.display(f, s);
+
+        }
+
+}
+--------------------------------------------------------------------------------------------------------------------------------
+String Tokenizer 2
+
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main{
+        public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                System.out.println("Enter the team names");
+                String f = br.readLine();
+                StringTokenizer st = new StringTokenizer(f, "#");
+                System.out.println("Number of teams : "+st.countTokens());
+                //String s = br.readLine();
+
+                //Main.display(f, s);
+
+        }
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+String Tokenizer 4
+
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main {
+        public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                System.out.println("Enter the player details");
+                String f = br.readLine();
+                StringTokenizer st = new StringTokenizer(f, ",");
+                System.out.println("Player Name : "+st.nextToken());
+
+        }
+
+}
+---------------------------------------------------------------------------------------------------------------------
+Display Match summaries-1
+
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main {
+
+        public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                //System.out.println("Enter the player details");
+                String f = br.readLine();
+                String st[] = f.split(" ");
+                for(int i=0;i<st.length;i++){
+                System.out.println(st[i]);
+                //String s = br.readLine();
+                }
+                for(int i= st.length-1;i>=0;i--){
+                System.out.print(st[i]+" ");
+                }
+
+        }
+}
+-----------------------------------------------------------------------------------------------------------------------------
+        String Buffer, String Builder, String Tokenizer, String Splitting / Session 2  <Validation 4>
+
+import java.io.*;
+import java.nio.Buffer;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void validatePlayer(String f,String s){
+                StringBuffer sb = new StringBuffer(f);
+                char ss[] = new char [sb.length()];
+                String r ="";
+                for(int i =0;i<sb.length();i++){
+                        ss[i]  = (char)(sb.charAt(i)+1); 
+                        r += ss[i];
+                }
+
+                if(r.equals(s)){
+                        System.out.println("Valid");
+                }
+                else{
+                        System.out.println("Invalid");
+                }
+                }
+
+        public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                //System.out.println("Enter the player details");
+                String f = br.readLine();
+                String s = br.readLine();
+                validatePlayer(f, s);
+
+        }
+}
+-------------------------------------------------------------------------------------------------------------------------
+Collections /Maps / Session 1      Comparator - Team name and Number of matches
+
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+
+class Main 
+{ 
+    public static void main(String[] args)throws IOException 
+    { 
+        ArrayList<Team > map = new ArrayList<>();
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       System.out.println("Enter number of teams: ");
+       int noOfTeam = Integer.parseInt(br.readLine());
+       for(int i=0;i<noOfTeam;i++){
+           int x= i+1;
+       System.out.println("Enter team "+x+" detail"); 
+       System.out.println("Enter Name ");
+       String name = br.readLine();
+       System.out.println("Enter number of matches");
+       Long noOfMatches = Long.parseLong(br.readLine());
+       Team t = new Team(name,noOfMatches);
+       map.add(t);    
+       }
+       Collections.sort((List<Team>) map,new TeamComparator());
+        System.out.println(map);
+}
+
+}
+
+public class Team{
+        private String name;
+        private long numberOfMatches;
+
+
+        public Team() {
+                super();
+        }
+
+        public Team(String name, long numberOfMatches) {
+                super();
+                this.name = name;
+                this.numberOfMatches = numberOfMatches;
+        }
+
+
+        public String getName() {
+                return name;
+        }
+
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public long getNumberOfMatches() {
+                return numberOfMatches;
+        }
+
+        public void setNumberOfMatches(long numberOfMatches) {
+                this.numberOfMatches = numberOfMatches;
+        }
+
+        @Override
+        public String toString() {
+                return name + " - " + numberOfMatches;
+        }
+
+}
+
+import java.util.Comparator;
+
+public class TeamComparator implements Comparator {
+
+
+        public TeamComparator() {
+                super();
+                // TODO Auto-generated constructor stub
+        }
+
+        @Override
+        public int compare(Object o1,Object o2) {
+                Team s1=(Team)o1;  
+                Team s2=(Team)o2;  
+
+                if(s1.getNumberOfMatches()==s2.getNumberOfMatches())  
+                return 0;  
+                else if(s1.getNumberOfMatches()>s2.getNumberOfMatches())  
+                return 1;  
+                else  
+                return -1;
+        }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+Collections /Maps / Session 2   TreeMap-Player Details(Search)
+
+Main Class//
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
+
+class Main 
+{ 
+    public static void main(String[] args)throws IOException 
+    { 
+        int capNumber =0;
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       int count =0;
+       System.out.println("Enter the number of players");
+
+       int noOfPlayer = Integer.parseInt(br.readLine());
+       TreeMap<Integer, Player> tMap= new TreeMap<>();
+       for (int i = 0; i < noOfPlayer; i++) {
+           int x = i+1;
+           System.out.println("Enter the details of the player "+x);
+          capNumber = Integer.parseInt(br.readLine());
+           String name = br.readLine();
+           String team = br.readLine();
+           String skill = br.readLine();
+           Player p = new Player(name, team, skill);
+           tMap.put(capNumber, p);
+        }
+       System.out.println("Player Details");
+       for (Integer keys : tMap.keySet()){
+           Player s = tMap.get(keys);
+           System.out.println( keys+"--"+ s);
+
+        }
+     System.out.println("Enter the cap number of the player to be searched"); 
+     int cp = Integer.parseInt(br.readLine());
+
+     for (Integer keys : tMap.keySet()){
+     if(cp==keys){
+          System.out.println("Player Details");
+         Player s = tMap.get(keys);
+         System.out.println(s);
+         count++;
+     }
+     }
+
+
+     if(count==0){
+         System.out.println("Player not found");
+     }
+
+
+    }
+    }
+
+Player Class  ////
+
+
+public class Player {
+private String name;
+private String team;
+private String skill;
+
+public Player() {
+        super();
+}
+
+public Player(String name, String team, String skill) {
+        super();
+        this.name = name;
+        this.team = team;
+        this.skill = skill;
+}
+
+@Override
+public String toString() {
+        return name + "--" + team + "--" + skill;
+}
+
+}
+--------------------------------------------------------------------------------------------------------------
+HashMap – Player
+
+
+
+public class Player {
+    private String bowlerName;
+    private int wicketCount;
+    public Player(String bowlerName, int wicketCount) {
+                super();
+                this.bowlerName = bowlerName;
+                this.wicketCount = wicketCount;
+        }
+
+        public String getBowlerName() {
+                return bowlerName;
+        }
+        public void setBowlerName(String bowlerName) {
+                this.bowlerName = bowlerName;
+        }
+        public int getWicketCount() {
+                return wicketCount;
+        }
+        public void setWicketCount(int wicketCount) {
+                this.wicketCount = wicketCount;
+        }
+
+        @Override
+        public String toString() {
+                return "Wicket Count : "+ wicketCount;
+        }
+}
+
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+public class Main {
+
+    public static void main(String[] args) 
+    {
+        // TODO Auto-generated method stub
+                BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+                 HashMap<String,Player> map = new HashMap<>();
+
+                 String name=null;
+                 String a=null;
+                 String d=null;
+                 String name1=null;
+                 String a1=null;
+                 int count=0;
+                 do
+                 {       System.out.println("Enter the player name");
+                         try {
+                                        name=br.readLine();
+                                } catch (IOException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                }
+                         System.out.println("Enter wickets - seperated by \""+"|"+"\" symbol.");
+                         try {
+                                        d=br.readLine();
+                                } catch (IOException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                }
+                         StringTokenizer tokens = new StringTokenizer(d,"|");
+
+                         count=tokens.countTokens();
+                 Player p=new Player(d,count);
+                         map.put(name,p);
+                         System.out.println("Do you want to add another player (yes/no)");
+                          try {
+                                        a = br.readLine();
+                                } catch (IOException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                }
+
+                 } while((a.equals("Yes"))||( a.equals("yes")));
+
+
+                 do {
+             System.out.println("Enter the player name to search");
+             try {
+                                name1=br.readLine();
+                        } catch (IOException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                        }
+                 if(map.containsKey(name1))
+                 {
+                          Set set = map.entrySet();
+                 Iterator it = set.iterator();
+                         while(it.hasNext()) {
+                                 Map.Entry me = (Map.Entry)it.next();
+                 if(me.getKey().equals(name1))
+                 {
+                     System.out.println("Player name : "+me.getKey());
+                 System.out.println(me.getValue());}
+                 }
+
+
+                 }
+                 else
+                        {System.out.println("No player found with the name "+name1); }
+
+         System.out.println("Do you want to search another player (yes/no)");
+         try {
+                        a1 = br.readLine();
+                } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }}
+         while(a1.equalsIgnoreCase("Yes"));
+
+        }
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+TreeMap - Letter Frequency
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
+
+public class LetterSequence {
+    private String sentence     ;
+        int count =0;
+        int xx=0;
+   private  TreeMap<Character, Integer> tMap = new TreeMap<>();
+        private ArrayList<Character> alist = new ArrayList<>();
+        public LetterSequence(String sentence) {
+                super();
+                this.sentence = sentence;
+        }
+        public TreeMap<Character,Integer> computeFrequency()    {
+                for (int i = 0; i < sentence.length(); i++) {
+                        alist.add(sentence.charAt(i));
+                }
+                for(int j =0;j<sentence.length();j++){
+                        int count = Collections.frequency(alist, sentence.charAt(j));
+                        tMap.put(sentence.charAt(j), count);
+                }
+                count =0;
+                return tMap;
+
+        }
+        public void displayLetterFrequency(TreeMap<Character,Integer> frequencyMap){
+
+                for(Character c : tMap.keySet()){
+            if(c !=' '){
+                        System.out.print(c+" : ");
+                        xx = tMap.get(c);
+                        for(int h =0;h<xx;h++){
+                                System.out.print("*");
+                }
+                 System.out.print("\n");                
+            }
+
+                }
+
+        }
+}
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.TreeMap;
+
+class Main 
+{ 
+    public static void main(String[] args)throws IOException 
+    { 
+    TreeMap<Character, Integer> frequencyMap = new TreeMap<>();
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       System.out.println("Enter the input string");
+       String input = br.readLine();
+       LetterSequence ls = new LetterSequence(input);
+       frequencyMap = ls.computeFrequency();
+       ls.displayLetterFrequency(frequencyMap);
+}
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,601 @@
+fundamental s1 q2
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner scan = new Scanner(System.in);
+        int seat = scan.nextInt();
+        if(seat <= 6){
+            if((seat == 2) || (seat == 5))
+                System.out.println("Yes");
+            else{
+            System.out.println("No");
+            }
+        }
+        else if(seat > 6){
+            int r = seat % 6;
+            if((r == 2) || (r == 5))
+                System.out.println("Yes");
+            else{
+            System.out.println("No");
+            }
+        }
+        
+    }
+}
+
+q3
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner scan = new Scanner(System.in);
+        int d = scan.nextInt();
+        int s1 = scan.nextInt();
+        int s2 = scan.nextInt();
+        int s3 = scan.nextInt();
+        int x = scan.nextInt();
+        int arr[] = {s1, s2, s3};
+        int amt = x-d;
+        int count = 0;
+        
+        
+        
+        for(int i = 0; i < 3; i++){
+            if(amt >= arr[i]){
+                amt = amt - arr[i];
+                count++;
+            }
+        }
+        
+        System.out.println(count);
+        
+    }
+}
+
+q4
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner scan = new Scanner(System.in);
+        int match1 = scan.nextInt();
+        int match2 = scan.nextInt();
+        int match3 = scan.nextInt();
+        int cent = 0, half = 0, countCent = 0, countHalf = 0;
+        
+        int arr[] = {match1, match2, match3};
+        
+        
+        
+        for(int i = 0; i < 3; i++){
+            cent = arr[i] / 100;
+            if(cent >= 1)
+                countCent++;
+            //arr[i] = arr[i] - (cent*100);
+            half = arr[i] / 50;
+            if(half >=1)
+                countHalf++;
+        }
+        
+        if(countCent >= 2 || countHalf >= 3){
+            System.out.println("Selected");
+        }
+        
+        else if(countCent == 1 || countHalf >= 2){
+            System.out.println("Waitlisted");
+        }
+        
+        else{
+            System.out.println("Rejected");
+        }
+        
+    }
+}
+
+dates session 2 ques 3
+
+Main
+
+import java.util.*; 
+
+class Main {
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the year");
+        String str1 = scan.nextLine();
+    	UserMainCode.displayDate(str1);
+	}
+} 
+
+maincode
+
+import java.util.*;
+import java.text.*;
+class UserMainCode {
+    public static void displayDate(String str) {
+        
+            int year = Integer.parseInt(str);
+            if((year % 4 == 0) && (year % 100 != 0)){
+                System.out.println(year + "is leap year");
+            }
+            
+            else if(year % 400 == 0){
+                System.out.println(year + " is leap year");
+            }
+            
+            else
+                System.out.println(year + " is not leap year");
+    }
+} 
+
+
+collection maps session 2 ques 1
+
+main
+
+import java.util.*;
+
+class Main {
+    public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		HashMap<String, String > hs = new HashMap<>();
+		while (true) {
+			System.out.println("Enter the player name");
+			String name = sc.nextLine();
+			Bowler b = new Bowler(name);
+			System.out.println("Enter wickets - seperated by \"|\" symbol");
+			String wicket = sc.nextLine();
+			Wicket w = new Wicket(name,b);
+			hs.put(name, wicket);
+			System.out.println("Do you want to add another player (yes/no)");
+			String s = sc.nextLine();
+			if (s.equals("no")) {
+				break;
+			}
+		}
+		while (true) {
+			System.out.println("Enter the player name to search");
+			String name = sc.nextLine();
+			if (hs.get(name) != null) {
+				System.out.println("Player Name : " + name + "\n" + "Wickets :");
+                String s = hs.get(name);
+                String arr[] = s.split("\\|");
+				for(int i = 0; i < arr.length; i++){
+					System.out.println(arr[i]);
+				}
+			} else {
+				System.out.println("No player found with the name " + name);
+			}
+			System.out.println("Do you want to search another player (yes/no)");
+			String s = sc.nextLine();
+			if (s.equals("no")) {
+				break;
+			}
+		}
+	}
+}
+
+wicket 
+
+class Wicket {
+    String playerName = new String();
+	Bowler bow = new Bowler();
+
+	public Wicket(String playerName, Bowler bow) {
+		super();
+		this.playerName = playerName;
+		this.bow = bow;
+	}
+
+	public Wicket() {
+		super();
+	}
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public Bowler getBow() {
+		return bow;
+	}
+
+	public void setBow(Bowler bow) {
+		this.bow = bow;
+	}
+}
+bowler 
+
+class Bowler {
+    String name = new String();
+
+	public Bowler(String name) {
+		super();
+		this.name = name;
+	}
+
+	public Bowler() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+}
+
+collection sets session 2 ques 1
+
+main 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+class Main {
+    public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of matches");
+		int n = sc.nextInt();
+		sc.nextLine();
+		TreeSet<Match> ts = new TreeSet<>();
+        
+
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter match date in (MM-dd-yyyy)");
+			String d = sc.nextLine();
+			System.out.println("Enter Team 1");
+			String team1 = sc.nextLine();
+			System.out.println("Enter Team 2");
+			String team2 = sc.nextLine();
+			Match m = new Match(d, team1, team2);
+			ts.add(m);
+		}
+
+		System.out.println("Match Details");
+        Iterator it = ts.descendingIterator();
+
+		while(it.hasNext()){
+    	 System.out.println(it.next());   
+		}
+	}
+}
+
+match
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+class Match implements Comparable<Match> {
+    Date matchDate = new Date();
+    String teamOne = new String();
+	String teamTwo = new String();
+    SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+
+	public Match(String d, String teamOne, String teamTwo) {
+		super();
+		Date date = new Date();
+		try {
+			 date = sdf.parse(d);
+			 this.matchDate = date;
+			 this.teamOne = teamOne;
+			 this.teamTwo = teamTwo;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public Match() {
+		super();
+	}
+
+	public Date getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public String getTeamOne() {
+		return teamOne;
+	}
+
+	public void setTeamOne(String teamOne) {
+		this.teamOne = teamOne;
+	}
+
+	public String getTeamTwo() {
+		return teamTwo;
+	}
+
+	public void setTeamTwo(String teamTwo) {
+		this.teamTwo = teamTwo;
+	}
+
+	@Override
+	public String toString() {
+		return "Team 1 " + teamOne + "\n" + "Team 2 " + teamTwo + "\n" + "Match held on " + sdf.format(matchDate);
+	}
+
+	@Override
+	public int compareTo(Match m) {
+
+		return matchDate.compareTo(m.matchDate);
+	}
+
+}
+
+collection sets session 1 ques 7
+
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of top run scorers in season 4");
+        int n = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the name of players");
+        HashSet<String> ts1 = new HashSet<>();
+        for(int i = 0; i < n; i++){
+            ts1.add(sc.nextLine());
+        }
+        
+        System.out.println("Enter the number of top run scorers in season 5");
+        int m = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the name of players");
+        HashSet<String> ts2 = new HashSet<>();
+        for(int i = 0; i < m; i++){
+            ts2.add(sc.nextLine());
+        }
+        
+        Iterator it1 = ts1.iterator();
+        Iterator it2 = ts2.iterator();
+        
+        System.out.println("Player Set 1");
+        while(it1.hasNext()){
+            System.out.println(it1.next());
+        }
+        
+        System.out.println("Player Set 2");
+        while(it2.hasNext()){
+            System.out.println(it2.next());
+        }
+        
+        System.out.println("Intersection");
+        
+        
+        Iterator it3 = ts1.iterator();
+        Iterator it4 = ts2.iterator();
+        
+        while(it4.hasNext()){
+            String s = (String)it4.next();
+            if(!(ts1.add(s))){
+                System.out.println(s);
+            }
+        }
+    }
+}
+
+q6
+
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of top run scorers in season 4");
+        int n = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the name of players");
+        HashSet<String> ts1 = new HashSet<>();
+        for(int i = 0; i < n; i++){
+            ts1.add(sc.nextLine());
+        }
+        
+        System.out.println("Enter the number of top run scorers in season 5");
+        int m = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the name of players");
+        HashSet<String> ts2 = new HashSet<>();
+        for(int i = 0; i < m; i++){
+            ts2.add(sc.nextLine());
+        }
+        
+        Iterator it1 = ts1.iterator();
+        Iterator it2 = ts2.iterator();
+        
+        System.out.println("Player Set 1");
+        while(it1.hasNext()){
+            System.out.println(it1.next());
+        }
+        
+        System.out.println("Player Set 2");
+        while(it2.hasNext()){
+            System.out.println(it2.next());
+        }
+        
+        System.out.println("Union");
+        
+        
+        Iterator it3 = ts1.iterator();
+        Iterator it4 = ts2.iterator();
+        
+        while(it4.hasNext()){
+            String s = (String)it4.next();
+            ts1.add(s);
+        }
+        
+        for(String s: ts1){
+            System.out.println(s);
+        }
+    }
+}
+
+q5
+
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of best bowlers in season 4");
+        int n = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the name of players");
+        HashSet<String> ts1 = new HashSet<>();
+        for(int i = 0; i < n; i++){
+            ts1.add(sc.nextLine());
+        }
+        
+        System.out.println("Enter the number of best bowlers in season 5");
+        int m = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter the name of players");
+        HashSet<String> ts2 = new HashSet<>();
+        for(int i = 0; i < m; i++){
+            ts2.add(sc.nextLine());
+        }
+        
+        Iterator it1 = ts1.iterator();
+        Iterator it2 = ts2.iterator();
+        
+        System.out.println("Player Set 1");
+        while(it1.hasNext()){
+            System.out.println(it1.next());
+        }
+        
+        System.out.println("Player Set 2");
+        while(it2.hasNext()){
+            System.out.println(it2.next());
+        }
+        
+        System.out.println("Difference");
+        
+        
+        Iterator it3 = ts1.iterator();
+        Iterator it4 = ts2.iterator();
+        
+        while(it3.hasNext()){
+            String s = (String)it3.next();
+        	if(ts2.add(s)){
+        		System.out.println(s);
+        	}
+        }
+    }
+}
+maps session 1 ques 2
+
+main
+
+import java.util.*;
+
+class Main {
+    public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please provide the number of players to be registered");
+		int n = sc.nextInt();
+
+		ArrayList<Player> hs = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			String skill = new String();
+			sc.nextLine();
+			System.out.println("Please enter player name");
+			String name = sc.nextLine();
+			System.out.println("Please select the skill of the player");
+			System.out.println("1.All Rounder" + "\n" + "2.Batsman" + "\n" + "3.Bowler");
+			int num = sc.nextInt();
+			if(num == 1){
+				skill = "All Rounder";
+			}
+			else if(num == 2){
+				skill = "Batsman";
+			}
+			else if(num == 3){
+				skill = "Bowler";
+			}
+			Player player = new Player(name, skill);
+			hs.add(player);
+		}
+
+		PlayerComparator tc = new PlayerComparator();
+		Collections.sort(hs, tc);
+        
+        System.out.println("Player Details");
+
+		for (Player t : hs) {
+			System.out.println(t);
+		}
+	}
+}
+
+player 
+
+class Player {
+    String name = new String();
+	String skill = new String();
+
+	public Player(String name, String skill) {
+		super();
+		this.name = name;
+		this.skill = skill;
+	}
+
+	public Player() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSkill() {
+		return skill;
+	}
+
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+
+	@Override
+	public String toString() {
+		return "Player : " + name + " Skill " + " : " + skill;
+	}
+
+}
+
+PlayerComparator
+
+import java.util.*;
+
+class PlayerComparator implements Comparator<Player> {
+
+    @Override
+    public int compare(Player t1, Player t2) {
+    	int v = t1.skill.compareTo(t2.skill);
+		if (v == 0) {
+			return t1.name.compareTo(t2.name);
+		}
+		return v;
+
+	}
+
+}
