@@ -1,0 +1,5987 @@
+classes and obj. 1; Session 2
+2.
+
+import java.util.*;
+
+class Player
+{
+    private String name;
+    private String country; 
+    private String skill; 
+    
+    void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    void setCountry(String country)
+    {
+        this.country = country;
+    }
+    
+    void setSkill(String skill)
+    {
+        this.skill = skill;
+    }
+    
+    String getName()
+    {
+        return name;
+    }
+    String getCountry()
+    {
+        return country;
+    }
+    String getSkill()
+    {
+        return skill;
+    }
+    
+    void show()
+    {
+        System.out.println("Player Name :" + name);
+        System.out.println("Country Name :" + country);
+        System.out.println("Skill :" + skill);
+    }
+    
+    void game()
+    {
+        System.out.println("Menu"); 
+        System.out.println("1.Update Player Name"); 
+        System.out.println("2.Update Country Name"); 
+        System.out.println("3.Update Skill"); 
+        System.out.println("4.All informations Correct/Exit"); 
+        System.out.println("Type 1 or 2 or 3 or 4"); 
+    }
+
+}
+
+class Main
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the player name");
+        String name = sc.nextLine();
+        System.out.println("Enter the country name");
+        String country = sc.nextLine();
+        System.out.println("Enter the skill");
+        String skill = sc.nextLine();
+        
+        Player player = new Player();
+        player.setName(name);
+        player.setCountry(country);
+        player.setSkill(skill);
+        
+        System.out.println("Player Details");
+        
+        player.show();
+        
+        System.out.println("Verify and Update Player Details");
+        player.game();
+        boolean t = true;
+        while(t == true)
+        {
+                int choice = Integer.parseInt(sc.nextLine());
+                if(choice == 1)
+                {
+                    System.out.println("The current player name is " + player.getName());
+                    System.out.println("Enter the player name");
+                    String newName = sc.nextLine();
+                    player.setName(newName);
+                    player.game();
+                }
+                else if(choice == 2)
+                {
+                    System.out.println("The current country is " + player.getCountry());
+                    System.out.println("Enter the country");
+                    String newCountry = sc.nextLine();
+                    player.setCountry(newCountry);
+                    player.game();
+                }
+                else if(choice == 3)
+                {
+                    System.out.println("The current skill is " + player.getSkill());
+                    System.out.println("Enter the skill");
+                    String newSkill = sc.nextLine();
+                    player.setSkill(newSkill);
+                    player.game();
+                }
+                else if(choice == 4)
+                {
+                    System.out.println("Player Details");
+                    player.show();
+                    t = false;
+                }
+            
+            
+            
+        }
+        
+        
+    }
+}
+
+classes and obj. 2; Session 1
+1.
+
+
+import java.util.*;
+class Venue
+{
+    private String name;
+    private String city;
+    
+    public Venue()
+    {
+        
+    }
+    
+    public Venue(String name, String city)
+    {
+        this.name = name;
+        this.city = city;
+    }
+    
+    void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    void setCity(String city)
+    {
+        this.city = city;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public String getCity()
+    {
+        return city;
+    }
+    
+    public void venueDetails()
+    {
+         System.out.println("Venue Name : " + name);
+         System.out.println("City Name : " + city);
+        
+    }
+}
+
+class Main
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in); 
+        System.out.println("Enter the number of venues");
+        int n = Integer.parseInt(sc.nextLine());
+        
+        Venue v[] = new Venue[n];
+        for(int i = 0; i < n; i++)
+        {
+            v[i] = new Venue();
+        }
+        for(int i = 0; i < n; i++)
+        {
+            System.out.println("Enter the details of venue " + (i + 1));
+            String details = sc.nextLine();
+            String []d = new String[2];
+            d = details.split(",");
+            v[i].setName(d[0]);
+            v[i].setCity(d[1]);
+        }
+        sc.close();
+        
+        System.out.println("Venue Details");
+        for(int i = 0; i < n; i++)
+        {
+            v[i].venueDetails();
+        }
+        
+    }
+}
+
+
+classes and obj. 2; Session 2
+1.
+
+import java.util.*;
+
+class Innings
+{
+    private String battingTeam; 
+    private Long runs; 
+    
+    public Innings()
+    {
+        
+    }
+    
+    public Innings(String battingTeam, Long runs)
+    {
+        this.battingTeam = battingTeam;
+        this.runs = runs;
+    }
+    
+    void setBattingTeam(String battingTeam)
+    {
+        this.battingTeam = battingTeam;
+    }
+    
+    void setRuns(Long runs)
+    {
+        this.runs = runs;
+    }
+    
+    public String getBattingTeam()
+    {
+        return battingTeam;
+    }
+    
+    public Long getRuns()
+    {
+        return runs;
+    }
+    
+    public String toString()
+    {
+         return (battingTeam + " -- " + runs);
+        
+    }
+}
+
+class Main
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in); 
+        System.out.println("Enter the number of innings");
+        int n = Integer.parseInt(sc.nextLine());
+        
+        Innings v[] = new Innings[n];
+        for(int i = 0; i < n; i++)
+        {
+            v[i] = new Innings();
+        }
+        for(int i = 0; i < n; i++)
+        {
+            System.out.println("Enter the values for Innings " + (i + 1));
+            System.out.println("Enter the BattingTeam");
+            String battingTeam = sc.nextLine();
+            System.out.println("Enter the runs scored");
+            Long runs = Long.parseLong(sc.nextLine());
+            v[i].setBattingTeam(battingTeam);
+            v[i].setRuns(runs);
+        }
+        sc.close();
+        
+        System.out.println("Innings Details");
+        for(int i = 0; i < n; i++)
+        {
+            System.out.println("Innings " + (i + 1));
+            System.out.println(v[i].toString());
+        }
+    }
+}
+
+2.
+
+import java.util.*;
+
+class Player
+{
+    private String name; 
+    private String country; 
+    private String skill; 
+    
+    public String getName() {
+    	return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getSkill() {
+		return skill;
+	}
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+    
+    public boolean equals(Object o)
+    {Player p = (Player)o;
+        if(name.equals(p.name) && country.equals(p.country) && skill.equals(p.skill))
+            return true;
+        else
+            return false;
+    }
+    
+    void show()
+    {
+        System.out.println(name + " --- " + country + " --- " + skill);
+    }
+    
+    
+
+}
+
+class Main
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        Player p1 = new Player();
+        Player p2 = new Player();
+        
+        System.out.println("Enter the player 1 details");
+        System.out.println("Enter the player name");
+        String name1 = sc.nextLine();
+        System.out.println("Enter the country name");
+        String country1 = sc.nextLine();
+        System.out.println("Enter the skill");
+        String skill1 = sc.nextLine();
+        p1.setName(name1);
+        p1.setCountry(country1);
+        p1.setSkill(skill1);
+        
+        p1.show();
+        
+        System.out.println("Enter the player 2 details");
+        System.out.println("Enter the player name");
+        String name2 = sc.nextLine();
+        System.out.println("Enter the country name");
+        String country2 = sc.nextLine();
+        System.out.println("Enter the skill");
+        String skill2 = sc.nextLine();
+        p2.setName(name2);
+        p2.setCountry(country2);
+        p2.setSkill(skill2);
+        
+        p2.show();
+        
+        if(p1.equals(p2))
+        {
+            System.out.println("Both the player details are same.");
+        }
+        else
+        {
+             System.out.println("Both the player details are not same.");
+        }
+
+        
+    }
+}
+
+
+classes and obj. 3; Session 1
+
+1.
+
+import java.util.*;
+import java.io.*;
+
+
+  public class Player {
+    
+    private String name;
+    private String country;
+	private String skill;
+    
+    public Player()
+    {
+        name = "";
+        country = "";
+        skill = "";
+    }
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getSkill() {
+		return skill;
+	}
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+	public Player(String name, String country, String skill) {
+	
+		this.name = name;
+		this.country = country;
+		this.skill = skill;
+	}
+	
+	
+	public String toString()
+	{
+
+		return String.format("%-15s %-15s %-15s",getName(),getCountry(),getSkill());
+		
+	}
+}
+
+  public class PlayerBO {
+    void displayPlayerDetails(Player player)
+	{
+        System.out.println("Player Details");
+		//System.out.println(player.getName() + "\t\t\t\t\t" + player.getCountry() + "\t\t\t\t" + player.getSkill());
+        String s = player.toString();
+        System.out.println(s);
+	}
+
+}
+
+
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+    
+        PlayerBO pb = new PlayerBO();
+        
+        System.out.println("Enter the player name");
+        String name = sc.nextLine();
+        System.out.println("Enter the country name");
+        String country = sc.nextLine();
+        System.out.println("Enter the skill");
+        String skill = sc.nextLine();
+        
+        
+        Player player = new Player(name, country, skill);
+        pb.displayPlayerDetails(player);
+        //System.out.println(player.toString());
+        
+		
+		
+
+	}
+
+}
+
+2.
+
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+  public class Delivery {
+    private
+    Long over;
+	Long ball;
+	String batsman;
+	String  bowler;
+	String  nonStriker;
+	public Long getOver() {
+		return over;
+	}
+	public void setOver(Long over) {
+		this.over = over;
+	}
+	public Long getBall() {
+		return ball;
+	}
+	public void setBall(Long ball) {
+		this.ball = ball;
+	}
+	public String getBatsman() {
+		return batsman;
+	}
+	public void setBatsman(String batsman) {
+		this.batsman = batsman;
+	}
+	public String getBowler() {
+		return bowler;
+	}
+	public void setBowler(String bowler) {
+		this.bowler = bowler;
+	}
+	public String getNonStriker() {
+		return nonStriker;
+	}
+	public void setNonStriker(String nonStriker) {
+		this.nonStriker = nonStriker;
+	}
+	public Delivery(Long over, Long ball, String batsman, String bowler,
+			String nonStriker) {
+
+		this.over = over;
+		this.ball = ball;
+		this.batsman = batsman;
+		this.bowler = bowler;
+		this.nonStriker = nonStriker;
+	}
+	public String toString()
+	{
+		return String.format("Over :"+getOver()+"\nBall :"+getBall()+"\nBatsman :"+getBatsman()+"\nBowler :"+getBowler()+"\nNonStriker :"+getNonStriker());
+		
+	}
+
+}
+
+
+  public class DeliveryBO {
+    
+	void displayAllDeliveryDetails(Delivery[] deliveryList)
+	{
+		System.out.println("Delivery Details");
+        for(int i = 0; i < deliveryList.length; i++)
+        {
+            System.out.println("Delivery--" + (i + 1));
+            System.out.println("Over :" + deliveryList[i].getOver());
+            System.out.println("Ball :" + deliveryList[i].getBall());
+            System.out.println("Batsman :" + deliveryList[i].getBatsman());
+            System.out.println("Bowler :" + deliveryList[i].getBowler());
+            System.out.println("NonStriker :" + deliveryList[i].getNonStriker());
+            
+        }
+		
+	}
+
+}
+
+
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+	
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Long over;
+		Long ball;
+		String batsman;
+		String  bowler;
+		String  nonStriker;
+		Integer n;
+		System.out.println("Enter the number of deliveries");
+		n=Integer.parseInt(br.readLine());
+		Delivery [] delivery=new Delivery[n];
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("Enter the over");
+			over=Long.parseLong(br.readLine());
+			System.out.println("Enter the ball");
+			ball=Long.parseLong(br.readLine());
+			System.out.println("Enter the batsman");
+			batsman=br.readLine();
+			System.out.println("Enter the bowler");
+			bowler=br.readLine();
+			System.out.println("Enter the nonStriker");
+			nonStriker=br.readLine();
+			delivery[i]=new Delivery(over,ball,batsman,bowler,nonStriker);	
+		}
+		DeliveryBO deliveryBO=new DeliveryBO();
+		deliveryBO.displayAllDeliveryDetails(delivery);
+		
+	}
+
+}
+
+3.
+
+import java.util.*;
+
+import java.util.*;
+class Innings
+{
+    private String _battingTeam;
+    private Long _runs;
+    
+    public Innings(String _battingTeam, Long _runs)
+    {
+        this._battingTeam = _battingTeam;
+        this._runs = _runs;
+    }
+    
+    public String get_battingTeam() {
+    	return _battingTeam;
+	}
+	public void set_battingTeam(String _battingTeam) {
+		this._battingTeam = _battingTeam;
+	}
+	public Long get_runs() {
+		return _runs;
+	}
+	public void set_runs(Long _runs) {
+		this._runs = _runs;
+	}
+    
+    public String toString()
+    {
+        return String.format("%-20s %-20s",_battingTeam,_runs); 
+       // return String.format("%-20s %-20s",_battingTeam + " " + _runs);
+
+    }
+}
+
+class InningsBO
+{
+    void DisplayAllInningsDetails(Innings[] inningsList)
+    {
+        System.out.println("Innings Details");
+        
+        for(int i = 0; i < inningsList.length; i++)
+        {
+            System.out.println(inningsList[i].toString());
+        }
+    }
+}
+
+class Main
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in);
+        Innings inning[] = new Innings[2];
+        
+        System.out.println("Enter the values for FirstInnings");
+        System.out.println("Enter the BattingTeam");
+        String _battingTeam = sc.nextLine();
+        System.out.println("Enter the runs scored");
+        Long _runs = Long.parseLong(sc.nextLine());
+        inning[0] = new Innings(_battingTeam, _runs);
+        
+        System.out.println("Enter the values for SecondInnings");
+        System.out.println("Enter the BattingTeam");
+        String _battingTeam1 = sc.nextLine();
+        System.out.println("Enter the runs scored");
+        Long _runs1 = Long.parseLong(sc.nextLine());
+        inning[1] = new Innings(_battingTeam1, _runs1);
+        
+        InningsBO inb = new InningsBO();
+        inb.DisplayAllInningsDetails(inning);
+        
+    }
+}
+
+
+classes and obj. 3; Session 2
+
+1.
+
+import java.util.Scanner;
+
+class Wicket
+{
+    private Long over,ball;
+    private String wicketType;
+    private String playerName;
+    private String bowlerName;
+    Wicket(){}
+    Wicket(Long over,Long ball,String wicketType,String playerName,String bowlerName)
+    {
+        this.over=over;
+        this.ball=ball;
+        this.wicketType=wicketType;
+        this.playerName=playerName;
+        this.bowlerName=bowlerName;
+    }
+    public void setOver(Long over) {
+      this.over = over;
+   }
+    public Long getOver() {
+      return over;
+   }
+    public void setBall(Long ball) {
+      this.ball = ball;
+   }
+    public Long getBall() {
+      return ball;
+   }
+    public void setWicketType(String wicketType) {
+      this.wicketType = wicketType;
+   }
+   public String getWicketType() {
+      return wicketType;
+   }
+    public void setPlayerName(String playerName) {
+      this.playerName = playerName;
+   }
+   public String getPlayerName() {
+      return playerName;
+   }
+    public void setBowlerName(String bowlerName) {
+      this.bowlerName = bowlerName;
+   }
+   public String getBowlerName() {
+      return bowlerName;
+   }
+
+    public String toString()
+    {
+        return String.format("Over:%s\nBall:%s\nWicket Type:%s\nPlayer Name:%s\nBowler Name:%s",over,ball,wicketType,playerName,bowlerName);
+    }
+}
+
+
+import java.util.*;
+class WicketBO 
+{
+
+    public WicketBO(){}
+    
+    void displayAllWicketDetails(Wicket[] wicketList)
+    {
+        System.out.println("Wicket Details");
+        for(int i = 0; i < wicketList.length; i++)
+        {
+            System.out.println("Wicket " + (i + 1));
+            System.out.println(wicketList[i].toString());
+        }
+	}
+
+
+    void displaySpecificWicketDetails(Wicket[] wicketList,String Type)
+    {
+        for(int i = 0; i < wicketList.length; i++)
+        {
+            String s = wicketList[i].getWicketType();
+            if(s.equals(Type))
+            {
+                System.out.println("Wicket " + (i + 1));
+                System.out.println(wicketList[i].toString());
+            }
+        }
+    }   
+}
+
+
+
+ class Main
+{
+    public static void main(String args[]) 
+    {
+      Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of wickets");
+        int n=Integer.parseInt(scanner.nextLine());
+        Wicket[] wicket = new Wicket[n];
+        WicketBO wb = new WicketBO();
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("Enter the details of wicket "+(i+1));
+            String Str=scanner.nextLine();
+            String[] array =new String[5];
+            array = Str.split(",");
+            Long t=Long.parseLong(array[0]);
+            Long t1=Long.parseLong(array[1]);
+            wicket[i] = new Wicket(t,t1,array[2],array[3],array[4]);
+        }
+        wb.displayAllWicketDetails(wicket);
+        System.out.println("Enter the wicket type to be searched");
+        String type=scanner.next();
+        wb.displaySpecificWicketDetails(wicket,type);
+    }
+}
+
+
+2.
+
+import java.util.Scanner;
+
+class Outcome {
+    private
+    String status ;
+    String winnerTeam ;
+    String playerOfMatch ;
+    String date;
+    Outcome(){}
+    Outcome(String date,String status,String winnerTeam,String playerOfMatch)
+    {
+        this.date=date;
+        this.status=status;
+        this.winnerTeam=winnerTeam;
+        this.playerOfMatch=playerOfMatch;
+     }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getWinnerTeam() {
+        return winnerTeam;
+    }
+    public void setWinnerTeam(String winnerTeam) {
+        this.winnerTeam = winnerTeam;
+    }
+    public String getPlayerOfMatch() {
+        return playerOfMatch;
+    }
+    public void setPlayerOfMatch(String playerOfMatch) {
+        this.playerOfMatch = playerOfMatch;
+    }
+    
+    
+    
+    void setDate(String date)
+    {
+        this.date=date;
+    }
+
+    String getDate()
+    {
+        return date;
+    }
+    
+
+    public String toString()
+    {
+        return String.format("%-20s %-20s %-20s %s",status,winnerTeam,playerOfMatch,date);
+    }
+        
+
+}
+
+class OutcomeBO
+{
+    OutcomeBO(){}
+    void displayAllOutcomeDetails(Outcome[] outcomeList) 
+    {
+        System.out.println("Outcome Details");
+        System.out.println(String.format("%-20s %-20s %-20s %s","Status","Winning Team","Player Of The Match", "Date"));
+        for(int i = 0; i < outcomeList.length; i++)
+        {
+            System.out.println(outcomeList[i].toString());
+        }
+    }
+
+    void displaySpecificOutcomeDetails(Outcome[] outcomList, String date)
+    {
+        System.out.println("Outcome Details");
+        System.out.println(String.format("%-20s %-20s %-20s %s","Status","Winning Team","Player Of The Match", "Date"));
+        for(int i = 0; i < outcomList.length; i++)
+        {
+            if(outcomList[i].getDate().equals(date))
+            {
+                
+                System.out.println(outcomList[i].toString());
+            }
+        }
+    }
+
+}
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        String date ;
+        String status ;
+        String winnerTeam ;
+        String playerOfMatch ;
+        System.out.println("Enter the number of matches");
+        int n=scanner.nextInt();
+        Outcome[] outcome=new Outcome[n];
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("Enter match "+(i+1)+" details");
+	        System.out.println("Enter the date");
+            date=scanner.next();
+            scanner.nextLine();
+
+            System.out.println("Enter the status");
+            status=scanner.nextLine();
+        
+            System.out.println("Enter the winner team");
+            winnerTeam=scanner.nextLine();
+            
+            System.out.println("Enter the player of match");
+            playerOfMatch=scanner.nextLine();
+            outcome[i]=new Outcome(date,status,winnerTeam,playerOfMatch);
+        
+        }
+        OutcomeBO oBo=new OutcomeBO();
+        oBo.displayAllOutcomeDetails(outcome);
+        System.out.println("Enter the date to be searhed");
+        String sd=scanner.next();
+        oBo.displaySpecificOutcomeDetails(outcome,sd);
+    }
+
+}
+
+    
+classes and obj. 4; Session 1
+
+1.
+
+  import java.io.*;
+import java.util.*;
+
+
+  public class Outcome {
+    private	String status;
+	private String winnerTeam;
+	
+	
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getWinnerTeam() {
+		return winnerTeam;
+	}
+	public void setWinnerTeam(String winnerTeam) {
+		this.winnerTeam = winnerTeam;
+	}
+
+
+	
+	public Outcome(String status, String winnerTeam) {
+	
+		this.status = status;
+		this.winnerTeam = winnerTeam;
+	}
+
+
+	public Outcome()
+	{
+	}
+	
+	public String toString()
+	{
+		return winnerTeam;
+	}
+
+	
+
+}
+
+
+  public class Match {
+    private
+	String date;
+	String teamOne; 
+	String teamTwo; 
+	String venue; 
+	Outcome outcome;
+	
+	
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public String getTeamOne() {
+		return teamOne;
+	}
+
+
+	public void setTeamOne(String teamOne) {
+		this.teamOne = teamOne;
+	}
+
+
+	public String getTeamTwo() {
+		return teamTwo;
+	}
+
+
+	public void setTeamTwo(String teamTwo) {
+		this.teamTwo = teamTwo;
+	}
+
+
+	public String getVenue() {
+		return venue;
+	}
+
+
+	public void setVenue(String venue) {
+		this.venue = venue;
+	}
+
+
+	public Outcome getOutcome() {
+		return outcome;
+	}
+
+
+	public void setOutcome(Outcome outcome) {
+		this.outcome = outcome;
+	}
+
+
+	public Match(String date, String teamOne, String teamTwo, String venue,
+			Outcome outcome) {
+		
+		this.date = date;
+		this.teamOne = teamOne;
+		this.teamTwo = teamTwo;
+		this.venue = venue;
+		this.outcome = outcome;
+	}
+
+
+	public Match()
+	{
+
+	}
+	
+	public String toString()
+	{
+		return String.format("%-15s %-15s %-15s %-15s %-15s %-15s", date, teamOne, teamTwo, venue, outcome.getStatus(), outcome.getWinnerTeam());
+		
+	}
+
+}
+
+
+class MatchBO {
+    
+	public void printAllMatchDetails(List<Match> MatchList)
+	{
+		System.out.println("Match Details");
+        System.out.format("%-15s %-15s %-15s %-15s %-15s %s\n","Date","Team1","Team2","Venue","Status","Winner");
+	    for(int i = 0; i < MatchList.size(); i++)
+        {
+            System.out.println(MatchList.get(i).toString());
+        }
+		
+	}
+	
+	
+
+	public void printMatchDetailsWithOutcomeStatus(List<Match> MatchList, String outcomeStatus) {
+		
+			System.out.println("Match Details");
+            System.out.format("%-15s %-15s %-15s %-15s %-15s %s\n","Date","Team1","Team2","Venue","Status","Winner");
+			for(int i = 0; i < MatchList.size(); i++)
+            {
+                if(MatchList.get(i).getOutcome().getStatus().equals(outcomeStatus))
+                {
+                    System.out.println(MatchList.get(i).toString());
+                }
+            }
+				
+		
+	}
+	
+	public void printMatchDetailsWithOutcomeWinnerTeam(List<Match> MatchList, String outcomeWinnerTeam)
+	{
+        System.out.println("Match Details");
+        System.out.format("%-15s %-15s %-15s %-15s %-15s %s\n","Date","Team1","Team2","Venue","Status","Winner");
+		for(int i = 0; i < MatchList.size(); i++)
+            {
+                if(MatchList.get(i).getOutcome().toString().equals(outcomeWinnerTeam))
+                {
+                    System.out.println(MatchList.get(i).toString());
+                }
+            }
+			
+		
+	}
+	
+
+}
+
+
+
+
+ public class Main {
+
+    public static void main(String[] args) throws Exception {
+	
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String date;
+		String teamOne; 
+		String teamTwo; 
+		String venue; 
+	
+		
+		String status;
+		String winnerTeam;
+		
+		
+
+		System.out.println("Enter number of matches");
+		Integer n=Integer.parseInt(br.readLine());
+		Match match=new Match();
+		Outcome outcome=new Outcome();
+		ArrayList<Match> matchList = new ArrayList<Match>();
+
+		
+		
+		
+		
+		for(int i=0;i<n;i++)
+		{
+			System.out.println("Enter match "+(i+1)+" details:");
+			
+			System.out.println("Enter match date");
+		        date=br.readLine();
+			
+			System.out.println("Enter team one");
+			teamOne=br.readLine();
+			
+			System.out.println("Enter team two");
+			teamTwo=br.readLine();
+			
+			System.out.println("Enter venue");
+			venue=br.readLine();
+			
+			System.out.println("Enter status");
+			status=br.readLine();
+			
+			System.out.println("Enter winner Team");
+			winnerTeam=br.readLine();
+			
+			
+			outcome=new Outcome(status,winnerTeam);	
+			match=new Match(date,teamOne,teamTwo,venue,outcome);
+			matchList.add(match);
+			
+			
+		}
+
+		MatchBO matchBO=new MatchBO();
+		
+		
+		while(true)
+		{
+			System.out.println("Menu");
+			System.out.println("1.View match details");
+			System.out.println("2.Filter match details with outcome status");
+			System.out.println("3.Filter match details with outcome winner team");
+			System.out.println("4.Exit");
+			
+			System.out.println("Enter your choice");
+			Integer choice=Integer.parseInt(br.readLine());
+			
+			switch(choice)
+			{
+			case 1:
+				matchBO.printAllMatchDetails(matchList);
+				break;
+				
+			case 2:
+				System.out.println("Enter outcome status");
+				 status=br.readLine();
+				 matchBO.printMatchDetailsWithOutcomeStatus(matchList,status);
+				 break;
+			case 3:
+				System.out.println("Enter outcome winner team");
+				winnerTeam=br.readLine();
+				matchBO.printMatchDetailsWithOutcomeWinnerTeam(matchList,winnerTeam);
+				break;
+				default:
+					System.exit(0);
+							
+			
+			}
+			
+			
+		}
+
+	}
+
+}
+ 
+
+2.
+
+import java.io.*;
+import java.util.*;
+
+
+  public class Team {
+    private
+	String name;
+	String home;
+	public Team(String name, String home) {
+	
+		this.name = name;
+		this.home = home;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getHome() {
+		return home;
+	}
+	public void setHome(String home) {
+		this.home = home;
+	}
+	
+	
+}
+
+
+  public class TeamBO {
+    public  Team createTeam(String data)
+	{
+		String obj[] = data.split(",");
+        Team team = new Team(obj[0], obj[1]);
+        return team;
+	}
+
+}
+
+
+  public class Player {
+    private
+	String name;
+	Team team;
+	public Player(String name, Team team) {
+	
+		this.name = name;
+		this.team = team;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Team getTeam() {
+		return team;
+	}
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+	
+
+}
+
+
+  public class PlayerBO {
+    public Player createPlayer(String data, Team[] teamList)
+    {
+		String data1[] = data.split(",");
+        String name = data1[0];
+        Team t = null;
+        for(int i = 0; i < teamList.length; i++)
+        {
+            if(teamList[i].getName().equals(data1[1]))
+            {
+                t = new Team(teamList[i].getName(), teamList[i].getHome());
+                break;
+            }
+        }
+        Player p = new Player(name, t);
+        return p;
+    }
+	
+	public String findTeamName(Player[] playerList, String playername)
+	{
+        String teamName = "";
+	    for(int i = 0; i < playerList.length; i++)
+        {
+            if(playername.equals(playerList[i].getName()))
+            {
+                teamName = playerList[i].getTeam().getName();
+                break;
+            }
+        }
+        return teamName;
+	}
+	
+	public Boolean findWhetherPlayersAreInSameTeam (Player[] playerList, String playername1, String playername2)
+	{
+        String team1 = "";
+        String team2 = "";
+		for(int i = 0; i < playerList.length; i++)
+        {
+            if(playerList[i].getName().equals(playername1))
+            {
+                team1 = playerList[i].getTeam().getName();
+            }
+            if(playerList[i].getName().equals(playername2))
+            {
+                team2 = playerList[i].getTeam().getName();
+            }
+        }
+        
+        if(team1.equals(team2))
+            return true;
+        else
+            return false;
+		 
+		
+		
+	}
+
+}
+
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Integer n1,n2;
+		System.out.println("Enter the team count");
+		n1=Integer.parseInt(br.readLine());
+		Team [] teamList=new Team[n1];
+		TeamBO teamBO=new TeamBO();
+		
+		String t,p;
+		for(int i=0;i<n1;i++)
+		{
+			System.out.println("Enter team "+(i+1)+" details");
+			t=br.readLine();
+			teamList[i]=teamBO.createTeam(t);
+		}
+		
+		System.out.println("Enter the player count");
+		n2=Integer.parseInt(br.readLine());
+		Player [] playerList=new Player[n2];
+		PlayerBO playerBO=new PlayerBO();
+		for(int i=0;i<n2;i++)
+		{
+			System.out.println("Enter player "+(i+1)+" details");
+			p=br.readLine();
+			playerList[i]=playerBO.createPlayer(p, teamList);
+					
+		}
+		
+		System.out.println("Enter the player name for which you need to find the team name");
+		String name=br.readLine();
+		System.out.println(name+" belongs to "+playerBO.findTeamName(playerList,name));
+		System.out.println("Enter 2 player names");
+		String name1=br.readLine();
+		String name2=br.readLine();
+		if(playerBO.findWhetherPlayersAreInSameTeam(playerList,name1,name2))
+			System.out.println("The 2 player are in the same team");
+		else
+			System.out.println("The 2 player are in the different teams");
+		
+
+	}
+
+}
+
+
+Classes and obj 4; Session 2
+
+1.
+
+
+    import java.util.*;
+
+class Venue {
+    private String name;   
+    private City city;
+
+    public Venue(String name, City city) {
+        this.name = name;
+        this.city = city;
+    }
+    
+    public Venue() {
+    
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Venue{" + "name=" + name + ", city=" + city + '}';
+    }
+    
+}
+
+class VenueBO  {
+    public Venue createVenue(String data, City[] cityList) {
+       String arr[] = data.split(",");
+       Venue v = null;
+       for(int i = 0; i < cityList.length; i++)
+       {
+           if(arr[1].equals(cityList[i].getName()))
+            {
+                v = new Venue(arr[0], cityList[i]);
+            }
+       }
+       return v;
+       
+    }
+}
+
+class City {
+    private String name;
+    
+   
+   public City(String name) {
+        this.name = name;
+        
+    }
+    
+    
+
+    public City() {
+    }
+    
+    public boolean equals(City obj) {
+        return this.name.equals(obj.name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+
+   @Override
+    public String toString() {
+        return "City{" + "name=" + name + '}';
+    }
+
+}
+
+class CityBO  {
+     public City createCity(String data) {
+         
+        City c = new City(data);
+        return c;
+    }
+}
+
+class Match {
+    private String date;
+ private String teamone;
+ private String teamtwo;
+    private Venue venue;
+
+    public Match(String date,String teamone,String teamtwo, Venue venue) {
+        this.date = date;
+        this.venue = venue;
+ this.teamone = teamone;
+ this.teamtwo = teamtwo;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        final Match other = (Match) obj;
+        return this.date.equals(other.getDate());
+    }
+    
+    
+
+    public Match() {
+    }
+    
+    @Override
+    public String toString() {
+        return "Match{" + "date=" + date + ", venue=" + venue + '}';
+    }
+
+    
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+public String getTeamone() {
+        return teamone;
+    }
+
+    public void setTeamone(String teamone) {
+        this.teamone = teamone;
+    }
+
+public String getTeamtwo() {
+        return teamtwo;
+    }
+
+    public void setTeamtwo(String teamtwo) {
+        this.teamtwo = teamtwo;
+    }
+
+    public Venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+        this.venue = venue;
+    }
+    
+}
+
+class MatchBO {
+    public Match createMatch(String data, Venue[] venueList) {		
+        String arr[] = data.split(",");
+        Venue v = null;
+        for(int i = 0; i < venueList.length; i++)
+        {
+            if(arr[3].equals(venueList[i].getName()))
+            {
+                v = venueList[i];
+                break;
+            }
+        }
+        
+        Match m = new Match(arr[0], arr[1], arr[2], v);
+        return m;
+    }
+    
+    
+    public void findVenue(String date, Match[] matchList) {
+		
+        for(int i = 0; i < matchList.length; i++)
+        {
+            if(date.equals(matchList[i].getDate()))
+            {
+                System.out.println("Match was held at " + matchList[i].getVenue().getName());
+            }
+        }
+	}
+	
+	
+    
+    public void findAllMatchesInGivenVenue(String sname, Match[] matchList) {
+        System.out.println("Matches in venue " + sname + " are");
+        System.out.println(String.format("%-15s%-15s%s","Date", "TeamOne", "TeamTwo"));
+	    for(int i = 0; i < matchList.length; i++)
+        {
+            if(sname.equals(matchList[i].getVenue().getName()))
+            {
+                System.out.println(String.format("%-15s%-15s%s", matchList[i].getDate(), matchList[i].getTeamone(), matchList[i].getTeamtwo()));             
+            }
+        }
+		
+	}
+	
+	
+	
+				
+}
+
+
+public class Main {
+		public static void main(String args[]) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the city count");
+			Integer ccount = sc.nextInt();
+			sc.nextLine();
+			City cityObj = new City();
+			Venue venueObj = new Venue();
+Match matchObj = new Match();
+			City [] cityList = new City[ccount];
+			CityBO cityBO = new CityBO();
+			Integer i;
+			String data;
+			String name;
+			for(i=0;i<ccount;i++) {
+				System.out.println("Enter city "+(i+1)+" details");
+				data = sc.nextLine();
+				cityList[i] = cityBO.createCity(data);
+			}
+			
+			System.out.println("Enter the venue count");
+			Integer scount = sc.nextInt();
+			sc.nextLine();
+			Venue [] venueList = new Venue[scount];
+			VenueBO venueBO = new VenueBO();
+			for(i=0;i<scount;i++) {
+				System.out.println("Enter venue "+(i+1)+" details");
+				data = sc.nextLine();
+				venueList[i] = venueBO.createVenue(data, cityList);
+			}
+			
+			System.out.println("Enter the match count");
+			Integer matchCount = sc.nextInt();
+			sc.nextLine();
+			Match [] matchList = new Match[matchCount];
+			MatchBO matchBO = new MatchBO();
+			for(i=0;i<matchCount;i++) {
+				System.out.println("Enter match "+(i+1)+" details");
+				data = sc.nextLine();
+				matchList[i] = matchBO.createMatch(data, venueList);
+			}
+			
+			System.out.println("Menu :");
+			System.out.print("1)Find Venue\n2)Find All Matches In A Specific Venue\n");
+			System.out.println("Type 1 or 2");
+			do
+			{
+			System.out.println("Enter your choice");
+			Integer choice = sc.nextInt();
+			sc.nextLine();
+			switch(choice) {
+				case 1:
+				System.out.println("Enter Match Date");
+				name = sc.nextLine();
+				matchBO.findVenue(name, matchList);
+				
+				
+				break;
+				
+				case 2:
+				System.out.println("Enter Venue Name");
+				name = sc.nextLine();
+				matchBO.findAllMatchesInGivenVenue(name, matchList);
+				break;
+				
+				case 3:
+				break;
+			}
+			System.out.println("Do you want to continue? Type Yes or No");
+		}while(sc.nextLine().equalsIgnoreCase("Yes"));
+				
+				
+		}
+	}
+	
+	
+			
+	
+Dates api; Session 1
+
+1.
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+
+class Main
+{
+    public static void main(String []args) throws Exception
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        String s = sc.nextLine();
+        
+        
+        DateTimeFormatter d1 = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        
+        LocalDate l = LocalDate.parse(s, d1);
+        System.out.println(l);
+        
+ 
+        
+    }
+}
+
+
+2.
+
+    import java.text.ParseException;
+	import java.text.SimpleDateFormat;
+	import java.time.LocalDate;
+	import java.time.format.DateTimeFormatter;
+	import java.util.*;
+	
+	// May 1, 2016
+	
+	class Main
+	{
+	    public static void main(String []args) throws Exception
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        System.out.println("Enter String in this format(yyyy-MM-DD HH:mm:ss)");
+	        String s = sc.nextLine();
+	        
+	        
+	        /*DateTimeFormatter d1 = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+	        
+	        LocalDate l = LocalDate.parse(s, d1);
+	        System.out.println(l);*/
+	        
+	        
+	        SimpleDateFormat objSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	        Date dt_1 = objSDF.parse(s); 
+	        
+	        SimpleDateFormat objSDF1 = new SimpleDateFormat("d/MM/yyyy, k:mm:ss");
+	        System.out.println(objSDF1.format(dt_1));
+	        
+	    }
+	}
+
+
+3.
+
+
+    import java.text.ParseException;
+    import java.text.SimpleDateFormat;
+	import java.time.LocalDate;
+	import java.time.format.DateTimeFormatter;
+	import java.util.*;
+	
+	// May 1, 2016
+	
+	class Main
+	{
+	    public static void main(String []args) throws Exception
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        //System.out.println("Enter String in this format(yyyy-MM-DD HH:mm:ss)");
+	        String s = sc.nextLine();
+	        
+	        
+	        /* 1.
+	         * DateTimeFormatter d1 = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+	        
+	        LocalDate l = LocalDate.parse(s, d1);
+	        System.out.println(l);*/
+	        
+	        
+	        /* 2.
+	        SimpleDateFormat objSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	        Date dt_1 = objSDF.parse(s); 
+	        
+	        SimpleDateFormat objSDF1 = new SimpleDateFormat("d/MM/yyyy, k:mm:ss");
+	        System.out.println(objSDF1.format(dt_1));*/
+	        
+	        LocalDate t = LocalDate.parse(s);
+	        System.out.println("Day of year : " + t.getDayOfYear());
+	        
+	        
+	    }
+	}
+
+4.
+
+
+    import java.text.ParseException;
+    import java.text.SimpleDateFormat;
+	import java.time.LocalDate;
+	import java.time.format.DateTimeFormatter;
+	import java.util.*;
+	
+	// May 1, 2016
+	
+	class Main
+	{
+	    public static void main(String []args) throws Exception
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        //System.out.println("Enter String in this format(yyyy-MM-DD HH:mm:ss)");
+	        String s = sc.nextLine();
+	        
+	        
+	        /* 1.
+	         * DateTimeFormatter d1 = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+	        
+	        LocalDate l = LocalDate.parse(s, d1);
+	        System.out.println(l);*/
+	        
+	        
+	        /* 2.
+	        SimpleDateFormat objSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	        Date dt_1 = objSDF.parse(s); 
+	        
+	        SimpleDateFormat objSDF1 = new SimpleDateFormat("d/MM/yyyy, k:mm:ss");
+	        System.out.println(objSDF1.format(dt_1));*/
+	        
+	        /* 3.
+	        LocalDate t = LocalDate.parse(s);
+	        System.out.println("Day of Year: " + t.getDayOfYear());*/
+	        
+	        LocalDate t = LocalDate.parse(s);
+	        String name = t.getDayOfWeek().toString();
+	        
+	        String s1 = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
+	        System.out.println(s1);
+	        
+	        
+	        
+	    }
+	}
+
+5.
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Scanner;
+
+class UserMainCode
+{
+    public static void displayDateDetails(String d1, String d2) throws ParseException
+	{
+		DateTimeFormatter sm = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate date1 = LocalDate.parse(d1, sm);
+		LocalDate date2 = LocalDate.parse(d2, sm);
+		
+		Period p = Period.between(date1, date2);
+		System.out.print("Difference between " + date1 + " and " + date2 + ": ");
+		System.out.println(p.getYears() + " Years and " + p.getMonths() + " Months");
+	}
+}
+
+public class Main
+{
+	public static void main(String[] args) throws ParseException {
+		Scanner sc = new Scanner(System.in);
+		
+		String a = sc.nextLine();
+		String b = sc.nextLine();
+		
+		UserMainCode.displayDateDetails(a, b);
+ 	}
+}
+
+
+
+Inheritance; Session 1
+
+1.
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+class Shape
+{
+    protected 
+	String shapeName ;
+	
+	public Shape()
+	{
+		shapeName = "";
+	}
+	
+
+	public String getShapeName() {
+		return shapeName;
+	}
+
+
+
+	public void setShapeName(String shapeName) {
+		this.shapeName = shapeName;
+	}
+
+
+
+	public double calculateArea()
+	{
+		return 0.0;
+	}
+}
+
+class Square extends Shape
+{
+	private
+	int side;
+	
+	public Square(int side)
+	{
+		this.side = side;
+        super.shapeName = "Square";
+	}
+	
+	
+	public int getSide() {
+		return side;
+	}
+
+
+
+	public void setSide(int side) {
+		this.side = side;
+	}
+
+
+
+	public double calculateArea()
+	{
+		return (side*side);
+	}
+	
+}
+
+class Rectangle extends Shape
+{
+	private
+	int length;
+	int breadth;
+	
+	public Rectangle(int length, int breadth)
+	{
+		this.length = length;
+		this.breadth = breadth;
+        super.shapeName = "Rectangle";
+	}
+	
+	
+	public int getLength() {
+		return length;
+	}
+
+
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+
+
+	public int getBreadth() {
+		return breadth;
+	}
+
+
+
+	public void setBreadth(int breadth) {
+		this.breadth = breadth;
+	}
+
+
+
+	public double calculateArea()
+	{
+		return (length*breadth);
+	}
+	
+}
+
+class Circle extends Shape
+{
+	private
+	int radius;
+	
+	public Circle(int radius)
+	{
+		this.radius = radius;
+        super.shapeName = "Circle";
+	}
+	
+	
+	public int getRadius() {
+		return radius;
+	}
+
+
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+
+
+
+	public double calculateArea()
+	{
+		return (3.14159 * radius * radius);
+	}
+	
+}
+
+class Main {
+	public static void main(String args[])
+	{
+		
+		DecimalFormat df2 = new DecimalFormat(".##");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("1. Rectangle");
+		System.out.println("2. Square");
+		System.out.println("3. Circle");
+		System.out.println("Area Calculator --- Choose your shape");
+		
+		int ch = Integer.parseInt(sc.nextLine());
+		
+		if(ch == 1)
+		{
+			System.out.println("Enter length and breadth:");
+			int len = Integer.parseInt(sc.nextLine());
+			int br = Integer.parseInt(sc.nextLine());
+			
+			Rectangle r = new Rectangle(len, br);
+			r.setShapeName("Rectangle");
+			System.out.println("Area of " + r.getShapeName() + " is:" + String.format("%.2f", r.calculateArea()));
+			
+		}
+		
+		if(ch == 2)
+		{
+			System.out.println("Enter side:");
+			
+			int side = Integer.parseInt(sc.nextLine());
+			
+			Square s = new Square(side);
+			s.setShapeName("Square");
+			System.out.println("Area of " + s.getShapeName() + " is:" +String.format("%.2f", s.calculateArea()));
+		}
+		
+		if(ch == 3)
+		{
+			System.out.println("Enter Radius:");
+			
+			int radius = Integer.parseInt(sc.nextLine());
+			
+			Circle c = new Circle(radius);
+			c.setShapeName("Circle");
+			System.out.println("Area of " + c.getShapeName() + " is:" +String.format("%.2f", c.calculateArea()));
+		}
+	
+	
+	
+	}
+}
+
+
+2.
+
+import java.io.*;
+
+class Student
+{
+	protected String name;
+	protected String id;
+	protected int age;
+	protected double grade;
+	protected String address;
+	/*FILL CODE HERE*/
+    
+    public String getName() {
+    	return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public double getGrade() {
+		return grade;
+	}
+	public void setGrade(double grade) {
+		this.grade = grade;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public Student(String name, String id, int age, double grade, String address)
+	{
+		this.address = address;
+		this.age = age;
+		this.grade = grade;
+		this.id = id;
+		this.name = name;
+	}
+	
+	public Student()
+	{
+		name = "";
+		id = "";
+		grade = 0.0;
+		age = 0;
+		address = "";
+	}
+	
+	public void display()
+	{
+		System.out.println("Name : " + name);
+		System.out.println("Id : " + id);
+		System.out.println("Age : " + age);
+		System.out.println("Grade : " + grade);
+		System.out.println("Address : " + address);
+		
+	}
+	
+	public boolean isPassed()
+	{
+		if(grade > 50)
+			return true;
+		else
+			return false; 
+	}
+	
+}
+	
+class PGStudent extends Student
+{
+	private String specialization;
+	private int noOfPapersPublished;
+	/*FILL CODE HERE*/
+    
+    public PGStudent()
+    {
+		specialization = "";
+		noOfPapersPublished = 0;
+	}
+	
+	public PGStudent(String name, String id, int age, double grade, String address, String specialization, int noOfPapersPublished)
+	{
+		this.noOfPapersPublished = noOfPapersPublished;
+		this.specialization = specialization;
+		this.name = name;
+		this.id = id;
+		this.age = age;
+		this.grade = grade;
+		this.address = address;
+	}
+	
+	
+	
+	public String getSpecialization() {
+		return specialization;
+	}
+
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
+	}
+
+	public int getNoOfPapersPublished() {
+		return noOfPapersPublished;
+	}
+
+	public void setNoOfPapersPublished(int noOfPapersPublished) {
+		this.noOfPapersPublished = noOfPapersPublished;
+	}
+
+	public void display()
+	{
+		System.out.println("Name : " + name);
+		System.out.println("Id : " + id);
+		System.out.println("Age : " + age);
+		System.out.println("Grade : " + grade);
+		System.out.println("Address : " + address);
+		System.out.println("Specialization : " + specialization);
+		System.out.println("No. of papers published : " + noOfPapersPublished);
+		
+		
+	}
+	
+	public boolean isPassed()
+	{
+		if(grade > 70 && noOfPapersPublished >= 2)
+			return true;
+		else
+			return false; 
+	}
+}
+
+class UGStudent extends Student
+{
+	private String degree;
+	private String stream;
+	/*FILL CODE HERE*/
+    
+    public UGStudent()
+    {
+		degree = "";
+		stream = "";
+	}
+	
+	public UGStudent(String name, String id, int age, double grade, String address, String degree, String stream)
+	{
+		this.degree = degree;
+		this.stream = stream;
+		this.name = name;
+		this.id = id;
+		this.age = age;
+		this.grade = grade;
+		this.address = address;
+	}
+
+	public String getDegree() {
+		return degree;
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
+
+	public String getStream() {
+		return stream;
+	}
+
+	public void setStream(String stream) {
+		this.stream = stream;
+	}
+	
+	public void display()
+	{
+		System.out.println("Name : " + name);
+		System.out.println("Id : " + id);
+		System.out.println("Age : " + age);
+		System.out.println("Grade : " + grade);
+		System.out.println("Address : " + address);
+		System.out.println("Degree : " + degree);
+		System.out.println("Stream : " + stream);
+		
+		
+	}
+	
+	public boolean isPassed()
+	{
+		if(grade > 70)
+			return true;
+		else
+			return false; 
+	}
+	
+}
+	
+
+
+class Main
+{
+	public static void main(String args[]) throws IOException
+	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		String name, id, address, degree, stream, specialization;
+		int age, noOfPapers, choice;
+		double grade;
+		System.out.println("Menu");
+		System.out.println("1) Create a Student");
+		System.out.println("2) Create a UG Student");
+		System.out.println("3) Create a PG Student");
+		System.out.println("Enter your choice");
+ 		choice = Integer.parseInt(br.readLine());
+		System.out.println("Enter name");
+		name = br.readLine();
+		System.out.println("Enter id");
+		id = br.readLine();
+		System.out.println("Enter age");
+		age = Integer.parseInt(br.readLine());
+		System.out.println("Enter grade");
+		grade = Double.parseDouble(br.readLine());
+		System.out.println("Enter address");
+		address = br.readLine();
+		switch(choice)
+		{
+		case 1:
+			Student student = new Student(name, id, age, grade, address);
+			System.out.println("Student Details");
+			student.display();
+			if(student.isPassed())
+				System.out.println("Result : Pass");
+			else
+				System.out.println("Result : Fail");
+			break;
+		case 2:
+			System.out.println("Enter degree");
+			degree = br.readLine();
+			System.out.println("Enter stream");
+			stream = br.readLine();
+			UGStudent ugstudent = new UGStudent(name, id, age, grade, address, degree, stream);
+			System.out.println("UG Student Details");
+			ugstudent.display();
+			if(ugstudent.isPassed())
+				System.out.println("Result : Pass");
+			else
+				System.out.println("Result : Fail");
+			break;
+		case 3:
+			System.out.println("Enter specialization");
+			specialization = br.readLine();
+			System.out.println("Enter number of papers published");
+			noOfPapers = Integer.parseInt(br.readLine());
+			PGStudent pgstudent = new PGStudent(name, id, age, grade, address, specialization, noOfPapers);
+			System.out.println("PG Student Details");
+			pgstudent.display();
+			if(pgstudent.isPassed())
+				System.out.println("Result : Pass");
+			else
+				System.out.println("Result : Fail");
+			break;
+		default:
+			break;
+		}
+}
+	
+}
+
+		
+3.
+
+import java.util.*;
+
+class Vehicle
+{
+    protected
+    String make;
+	String vehicleNumber;
+	String fuelType;
+	int fuelCapacity;
+	int cc;
+	
+	public Vehicle()
+	{
+		make = "";
+		vehicleNumber = "";
+		fuelType = "";
+		fuelCapacity = 0;
+		cc = 0;
+	}
+	
+	public Vehicle(String make,String vehicleNumber,String fuelType,Integer fuelCapacity,Integer cc)
+	{
+		this.make = make;
+		this.vehicleNumber = vehicleNumber;
+		this.fuelType = fuelType;
+		this.fuelCapacity = fuelCapacity;
+		this.cc = cc;
+	}
+	
+	
+	
+	public String getMake() {
+		return make;
+	}
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+
+	public String getVehicleNumber() {
+		return vehicleNumber;
+	}
+
+	public void setVehicleNumber(String vehicleNumber) {
+		this.vehicleNumber = vehicleNumber;
+	}
+
+	public String getFuelType() {
+		return fuelType;
+	}
+
+	public void setFuelType(String fuelType) {
+		this.fuelType = fuelType;
+	}
+
+	public int getFuelCapacity() {
+		return fuelCapacity;
+	}
+
+	public void setFuelCapacity(int fuelCapacity) {
+		this.fuelCapacity = fuelCapacity;
+	}
+
+	public int getCc() {
+		return cc;
+	}
+
+	public void setCc(int cc) {
+		this.cc = cc;
+	}
+
+	public void displayMake()
+	{
+		System.out.println("***" + make + "***");
+	}
+	
+	public void displayBasicInfo()
+	{
+		System.out.println("---Basic Information---");
+		System.out.println("Vehicle Number:" + vehicleNumber);
+		System.out.println("Fuel Capacity:" + fuelCapacity);
+		System.out.println("Fuel Type:" + fuelType);
+		System.out.println("CC:" + cc);
+	}
+	
+	public void displayDetailInfo()
+	{
+		
+	}
+	
+}
+
+class TwoWheeler extends Vehicle
+{
+	private
+	boolean kickStartAvailable;
+	
+	public TwoWheeler()
+	{
+		kickStartAvailable = true;
+	}
+	
+	public TwoWheeler(String make, String number, String fuelType, int capacity, int cc, boolean kick)
+	{
+		super.cc = cc;
+		super.fuelCapacity = capacity;
+		super.fuelType = fuelType;
+		super.make = make;
+		super.vehicleNumber = number;
+		this.kickStartAvailable = kick;
+	}
+	
+	
+	
+	public boolean isKickStartAvailable() {
+		return kickStartAvailable;
+	}
+
+	public void setKickStartAvailable(boolean kickStartAvailable) {
+		this.kickStartAvailable = kickStartAvailable;
+	}
+
+	public void displayDetailInfo()
+	{
+		System.out.println("---Detail Information---");
+        if(kickStartAvailable)
+		    System.out.println("Kick Start Available:YES");
+        else
+    	    System.out.println("Kick Start Available:NO");
+	}
+	
+}
+
+class FourWheeler extends Vehicle
+{
+	private
+	String audioSystem;
+	int numberOfDoors;
+	
+	public FourWheeler()
+	{
+		audioSystem = "";
+		numberOfDoors = 0;
+	}
+	
+    public FourWheeler(String make, String number, String fuelTypeStr, int capacity, int cc, String audio, int doors)
+    { 
+        super.make = make;
+        super.vehicleNumber = number;
+        super.fuelType = fuelTypeStr;
+        super.fuelCapacity = capacity;
+        super.cc = cc;
+        this.audioSystem = audio;
+        this.numberOfDoors = doors;
+    }
+	
+
+	public String getAudioSystem() {
+		return audioSystem;
+	}
+
+	public void setAudioSystem(String audioSystem) {
+		this.audioSystem = audioSystem;
+	}
+
+	public int getNumberOfDoors() {
+		return numberOfDoors;
+	}
+
+	public void setNumberOfDoors(int numberOfDoors) {
+		this.numberOfDoors = numberOfDoors;
+	}
+	
+	public void displayDetailInfo()
+	{
+		System.out.println("---Detail Information---");
+		System.out.println("Audio System:" + audioSystem);
+		System.out.println("Number of Doors:" + numberOfDoors);
+	}
+	
+	
+}
+
+class Main { 
+
+    public static void main(String[] args) { 
+       Scanner sc = new Scanner(System.in);
+       
+       System.out.println("1.Four Wheeler\r\n" + 
+       		"2.Two Wheeler\r\n" +
+       		"Enter Vehicle Type:");
+       int x = Integer.parseInt(sc.nextLine());
+       if(x == 1)
+       {
+    	   String fuelType = "";
+    	   int capacity = 0;
+    	   int cc = 0;
+    	   System.out.println("Vehicle Make:");
+    	   String make = sc.nextLine();
+    	   System.out.println("Vehicle Number:");
+    	   String vehicleNumber = sc.nextLine();
+    	   System.out.println("Fuel Type:");
+    	   System.out.println("1.Petrol");
+    	   System.out.println("2.Diesel");
+    	   int f = Integer.parseInt(sc.nextLine());
+    	   if(f == 1)
+    	   {
+    		   System.out.println("Fuel Capacity:");
+    		   capacity = Integer.parseInt(sc.nextLine());
+    		   System.out.println("Engine CC:");
+    		   cc = Integer.parseInt(sc.nextLine());
+    		   fuelType = "Petrol";
+    	   }
+    	   if(f == 2)
+    	   {
+    		   System.out.println("Fuel Capacity:");
+    		   capacity = Integer.parseInt(sc.nextLine());
+    		   System.out.println("Engine CC:");
+    		   cc = Integer.parseInt(sc.nextLine());
+    		   fuelType = "Diesel";
+    	   }
+    	   System.out.println("Audio System:");
+    	   String audioSystem = sc.nextLine();
+    	   
+    	   System.out.println("Number of Doors:");
+    	   int numberOfDoors = Integer.parseInt(sc.nextLine());
+    	   
+    	   Vehicle obj = new FourWheeler(make, vehicleNumber, fuelType, capacity, cc, audioSystem, numberOfDoors);
+    	   
+    	   obj.setCc(cc);
+    	   obj.setFuelCapacity(capacity);
+    	   obj.setFuelType(fuelType);
+    	   obj.setMake(make);
+    	   obj.setVehicleNumber(vehicleNumber);
+    	   
+    	   obj.displayMake();
+    	   obj.displayBasicInfo();
+    	   obj.displayDetailInfo();
+    	   
+    	   
+       }
+       
+       if(x == 2)
+       {
+    	   String fuelType = "";
+    	   int capacity = 0;
+    	   int cc = 0;
+    	   System.out.println("Vehicle Make:");
+    	   String make = sc.nextLine();
+    	   System.out.println("Vehicle Number:");
+    	   String vehicleNumber = sc.nextLine();
+    	   System.out.println("Fuel Type:");
+    	   System.out.println("1.Petrol");
+    	   System.out.println("2.Diesel");
+    	   int f = Integer.parseInt(sc.nextLine());
+    	   if(f == 1)
+    	   {
+    		   System.out.println("Fuel Capacity:");
+    		   capacity = Integer.parseInt(sc.nextLine());
+    		   System.out.println("Engine CC:");
+    		   cc = Integer.parseInt(sc.nextLine());
+    		   fuelType = "Petrol";
+    	   }
+    	   if(f == 2)
+    	   {
+    		   System.out.println("Fuel Capacity:");
+    		   capacity = Integer.parseInt(sc.nextLine());
+    		   System.out.println("Engine CC:");
+    		   cc = Integer.parseInt(sc.nextLine());
+    		   fuelType = "Diesel";
+    	   }
+    	   
+    	   System.out.println("Kick Start Available(yes/no):");
+    	   String isKickStartAvailable1 = sc.nextLine();
+           boolean isKickStartAvailable = false;
+           if(isKickStartAvailable1.equals("yes"))
+                isKickStartAvailable = true;
+            
+    	   
+    	   TwoWheeler obj = new TwoWheeler(make, vehicleNumber, fuelType, capacity, cc, isKickStartAvailable);
+    	   
+    	   obj.setCc(cc);
+    	   obj.setFuelCapacity(capacity);
+    	   obj.setFuelType(fuelType);
+    	   obj.setMake(make);
+    	   obj.setVehicleNumber(vehicleNumber);
+    	   
+    	   obj.displayMake();
+    	   obj.displayBasicInfo();
+    	   obj.displayDetailInfo();
+    	   
+    	   
+       }
+       
+    } 
+} 
+
+4.
+
+import java.util.*;
+
+class HotelRoom
+{
+    protected
+	String hotelName;
+	int numberOfSqFeet;
+	boolean hasTV;
+	boolean hasWifi;
+	
+	public HotelRoom()
+	{
+		hotelName = "";
+		numberOfSqFeet = 0;
+		hasTV = false;
+		hasWifi = false;
+	}
+	
+	public HotelRoom(String hotelName, int numberOfSqFeet, boolean hasTV, boolean hasWifi)
+	{
+		this.hasTV = hasTV;
+		this.hasWifi = hasWifi;
+		this.hotelName = hotelName;
+		this.numberOfSqFeet = numberOfSqFeet;
+	}
+	
+	public int calculateTariff()
+	{
+		int tariff = 0;
+		
+		
+		return tariff;
+	}
+	
+	public int getRatePerSqFeet()
+	{
+		return 0;
+	}
+}
+
+class DeluxeRoom extends HotelRoom
+{
+	protected 
+	int ratePerSqFeet;
+	
+	public DeluxeRoom()
+	{
+		ratePerSqFeet = 0;
+	}
+	
+	public DeluxeRoom(String hotelName, int numberOfSqFeet, boolean hasTV, boolean hasWifi)
+	{
+		super(hotelName, numberOfSqFeet, hasTV, hasWifi);
+		ratePerSqFeet = 10;
+	}
+	public int getRatePerSqFeet()
+	{	
+		if(super.hasWifi == true)
+			return (ratePerSqFeet + 2);
+		else
+			return ratePerSqFeet;
+	}
+	
+	public int calculateTariff()
+	{
+		int tariff = 0;
+		tariff = numberOfSqFeet * getRatePerSqFeet();
+		
+		return tariff;
+	}
+}
+
+class DeluxeACRoom extends DeluxeRoom
+{
+	public DeluxeACRoom()
+	{
+		
+	}
+	
+	public DeluxeACRoom(String hotelName, int numberOfSqFeet, boolean hasTV, boolean hasWifi)
+	{
+		super(hotelName, numberOfSqFeet, hasTV, hasWifi);
+		super.ratePerSqFeet = 12;
+	}
+	
+	public int calculateTariff()
+	{
+		int tariff = 0;
+		tariff = numberOfSqFeet * getRatePerSqFeet();
+		
+		return tariff;
+	}
+
+}
+
+class SuiteACRoom extends HotelRoom
+{
+	private
+	int ratePerSqFeet;
+	
+	public SuiteACRoom()
+	{
+		ratePerSqFeet = 0;
+	}
+	
+	public SuiteACRoom(String hotelName, int numberOfSqFeet, boolean hasTV, boolean hasWifi)
+	{
+		super(hotelName, numberOfSqFeet, hasTV, hasWifi);
+		ratePerSqFeet = 15;
+	}
+	
+	public int getRatePerSqFeet()
+	{	
+		if(super.hasWifi == true)
+			return (ratePerSqFeet + 2);
+		else
+			return ratePerSqFeet;
+	}
+	
+	public int calculateTariff()
+	{
+		int tariff = 0;
+		tariff = numberOfSqFeet * getRatePerSqFeet();
+		
+		return tariff;
+	}
+}
+
+class Main {
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Hotel Tariff Calculator\r\n" + 
+				"1. Deluxe Room\r\n" + 
+				"2. Deluxe AC Room\r\n" + 
+				"3. Suite AC Room\r\n" + 
+				"Select Room Type:");
+		int ch = Integer.parseInt(sc.nextLine());
+		if(ch == 1)
+		{
+			System.out.println("Hotel Name:");
+			String name = sc.nextLine();
+			System.out.println("Room Square Feet Area:");
+			int ratePerSqFeet = Integer.parseInt(sc.nextLine());
+			System.out.println("Room has TV (yes/no):");
+			boolean hasTV = false;
+			String hasTV1 = sc.nextLine();
+			if(hasTV1.equals("yes"))
+				hasTV = true;
+			else
+				hasTV = false;
+			System.out.println("Room has Wifi (yes/no):");
+			boolean hasWifi = false;
+			
+			String wifi = sc.nextLine();
+			if(wifi.equals("yes"))
+				hasWifi = true;
+			else
+				hasWifi = false;
+			
+			HotelRoom h = new DeluxeRoom(name, ratePerSqFeet, hasTV, hasWifi);
+			System.out.println("Room Tariff per day is:" + (h.calculateTariff()));
+		}
+		else if(ch == 2)
+		{
+			System.out.println("Hotel Name:");
+			String name = sc.nextLine();
+			System.out.println("Room Square Feet Area:");
+			int ratePerSqFeet = Integer.parseInt(sc.nextLine());
+			System.out.println("Room has TV (yes/no):");
+			boolean hasTV = false;
+			String hasTV1 = sc.nextLine();
+			if(hasTV1.equals("yes"))
+				hasTV = true;
+			else
+				hasTV = false;
+			System.out.println("Room has Wifi (yes/no):");
+			boolean hasWifi = false;
+			
+			String wifi = sc.nextLine();
+			if(wifi.equals("yes"))
+				hasWifi = true;
+			else
+				hasWifi = false;
+			
+			DeluxeRoom h = new DeluxeACRoom(name, ratePerSqFeet, hasTV, hasWifi);
+			System.out.println("Room Tariff per day is:" + (h.calculateTariff()));
+		}
+		else if(ch == 3)
+		{
+			System.out.println("Hotel Name:");
+			String name = sc.nextLine();
+			System.out.println("Room Square Feet Area:");
+			int ratePerSqFeet = Integer.parseInt(sc.nextLine());
+			System.out.println("Room has TV (yes/no):");
+			boolean hasTV = false;
+			String hasTV1 = sc.nextLine();
+			if(hasTV1.equals("yes"))
+				hasTV = true;
+			else
+				hasTV = false;
+			System.out.println("Room has Wifi (yes/no):");
+			boolean hasWifi = false;
+			
+			String wifi = sc.nextLine();
+			if(wifi.equals("yes"))
+				hasWifi = true;
+			else
+				hasWifi = false;
+			
+			HotelRoom h = new SuiteACRoom(name, ratePerSqFeet, hasTV, hasWifi);
+			System.out.println("Room Tariff per day is:" + (h.calculateTariff()));
+		}
+		
+	}
+}
+
+
+
+Abstract Classes; Session 2
+
+1.
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+abstract class Shape {
+    
+    protected String name;
+    
+    public Shape()
+    {
+        name = "";
+    }
+    
+    public Shape(String name)
+    {
+    	this.name = name;
+    }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+    
+    public abstract float calculateArea();
+}
+
+
+class Rectangle extends Shape{
+    
+    private Integer length;
+    private Integer breadth;
+    
+    public Rectangle()
+    {
+        length = 0;
+    	breadth = 0;
+    }
+    
+    public Rectangle(String name, Integer length, Integer breadth)
+    {
+    	super.name = name;
+    	this.length = length;
+    	this.breadth = breadth;
+    }
+    
+	@Override
+	public float calculateArea() {
+		return (length * breadth);
+	}
+
+    
+    
+}
+
+class Square extends Shape{
+    
+    private Integer side;
+    
+    public Square()
+    {
+        side = 0;
+    }
+    
+    public Square(String name, Integer side)
+    {
+    	this.side = side;
+    	super.name = name;
+    }
+    
+	public Integer getSide() {
+		return side;
+	}
+
+	public void setSide(Integer side) {
+		this.side = side;
+	}
+
+	@Override
+	public float calculateArea() {
+		return (side * side);
+	}
+}
+
+class Circle extends Shape{
+    
+    private Integer radius;
+    
+    public Circle()
+    {
+        radius = 0;
+    }
+    
+    public Circle(String name, Integer radius)
+    {
+    	this.radius = radius;
+    	super.name = name;
+    }
+
+	public Integer getRadius() {
+		return radius;
+	}
+
+	public void setRadius(Integer radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public float calculateArea() {
+		return (float) (3.14 * radius * radius);
+	}
+
+}
+
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        System.out.println("Circle");
+        System.out.println("Square");
+        System.out.println("Rectangle");
+        System.out.println("Enter the shape name");
+        String shapeName = br.readLine();
+        Float area;
+        if(shapeName.toLowerCase().equals("circle")){
+            System.out.println("Enter the radius");
+            Integer radius = Integer.parseInt(br.readLine());
+            Shape cirIns = new Circle(shapeName,radius);
+            area = cirIns.calculateArea();
+            System.out.print("Area of Circle is ");
+            System.out.printf("%.2f\n",area);
+        }else if(shapeName.toLowerCase().equals("square")){
+            System.out.println("Enter the side");
+            Integer side = Integer.parseInt(br.readLine());
+            Shape sqIns = new Square(shapeName,side);
+            area = sqIns.calculateArea();
+            System.out.print("Area of Square is ");
+            System.out.printf("%.2f\n",area);
+        }else if(shapeName.toLowerCase().equals("rectangle")){
+            System.out.println("Enter the length");
+            Integer length = Integer.parseInt(br.readLine());
+            System.out.println("Enter the breadth");
+            Integer breath = Integer.parseInt(br.readLine());
+            Shape recIns = new Rectangle(shapeName,length,breath);
+            area = recIns.calculateArea();
+            System.out.print("Area of Rectangle is ");
+            System.out.printf("%.2f\n",area);
+        }else{
+            System.out.println("Invalid shape");
+        }
+        
+    }
+    
+}
+
+
+
+2.
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+
+abstract class Card {
+
+    protected String holderName;
+    protected String cardNumber;
+    protected String expiryDate;
+    
+    public Card()
+    {
+        holderName = "";
+    	cardNumber = "";
+    	expiryDate = "";
+    }
+    
+    public Card(String holderName, String cardNumber, String expiryDate)
+    {
+    	this.holderName = holderName;
+    	this.cardNumber = cardNumber;
+    	this.expiryDate = expiryDate;
+    }
+
+	public String getHolderName() {
+		return holderName;
+	}
+
+	public void setHolderName(String holderName) {
+		this.holderName = holderName;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(String expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+    
+      
+}
+
+class MembershipCard extends Card{
+    private Integer rating;
+    
+    public MembershipCard()
+    {
+        rating = 0;
+    }
+    
+    public MembershipCard(String holderName, String cardNumber, String expiryDate, Integer rating)
+    {
+    	super(holderName, cardNumber, expiryDate);
+    	this.rating = rating;
+    }
+
+
+	public Integer getRating() {
+		return rating;
+	}
+
+
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+    
+    
+    
+}
+
+
+class PaybackCard extends Card{
+    
+    private Integer pointsEarned;
+    private Double totalAmount;
+
+    public PaybackCard()
+    {
+        pointsEarned = 0;
+    	totalAmount = 0.0;
+    }
+    
+    public PaybackCard(String holderName, String cardNumber, String expiryDate, Integer pointsEarned, Double totalAmount)
+    {
+    	super(holderName, cardNumber, expiryDate);
+    	this.pointsEarned = pointsEarned;
+    	this.totalAmount = totalAmount;
+    }
+
+	public Integer getPointsEarned() {
+		return pointsEarned;
+	}
+
+	public void setPointsEarned(Integer pointsEarned) {
+		this.pointsEarned = pointsEarned;
+	}
+
+	public Double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(Double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+    
+    
+    
+}
+
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Select the Card");
+        System.out.println("1.Payback Card");
+        System.out.println("2.Membership Card");
+        Integer selCard = Integer.parseInt(br.readLine());
+        System.out.println("Enter the Card Details:");
+        String[] dataList1 = br.readLine().split("\\|");
+        String holderName = dataList1[0];
+        String cardNumber = dataList1[1];
+        String expiryDate = dataList1[2];
+        if(selCard == 1){
+            System.out.println("Enter points in card");
+            Integer points = Integer.parseInt(br.readLine());
+            System.out.println("Enter Amount");
+            Double amt = Double.parseDouble(br.readLine());
+            
+            PaybackCard payIns = new PaybackCard(holderName, cardNumber, expiryDate, points, amt);
+            System.out.println(payIns.getHolderName()+"'s Payback Card Details:");
+            System.out.println("Card Number "+payIns.getCardNumber());
+            System.out.println("Points Earned "+payIns.getPointsEarned());
+            System.out.println("Total Amount "+payIns.getTotalAmount());
+        }else if(selCard == 2){
+            System.out.println("Enter rating in card");
+            Integer rating = Integer.parseInt(br.readLine());
+            
+            MembershipCard memIns = new MembershipCard(holderName, cardNumber, expiryDate, rating);
+            System.out.println(memIns.getHolderName()+"'s Membership Card Details:");
+            System.out.println("Card Number "+memIns.getCardNumber());
+            System.out.println("Rating "+memIns.getRating());
+        }else{
+            System.out.println("Invalid card");
+        } 
+        
+
+        
+        
+    }
+    
+}
+
+
+
+3.
+
+
+import java.io.*;
+import java.util.*;
+
+public abstract class Match {
+	private int currentScore;
+	private float currentOver;
+	private int target;
+	
+	public int getCurrentScore() {
+		return currentScore;
+	}
+	public void setCurrentScore(int currentScore) {
+		this.currentScore = currentScore;
+	}
+	public float getCurrentOver() {
+		return currentOver;
+	}
+	public void setCurrentOver(float currentOver) {
+		this.currentOver = currentOver;
+	}
+	public int getTarget() {
+		return target;
+	}
+	public void setTarget(int target) {
+		this.target = target;
+	}
+	
+	public abstract float calculateRunrate();
+	
+	public abstract int calculateBalls();
+	
+	public void display(double reqRunRate,int balls){	
+		System.out.println("Requirements:");
+		System.out.println("Need " +(target - currentScore)+(balls > 1 ? " Runs" : " Run" )+" in "+balls+(balls > 1 ? " balls" : " ball" ));		
+		System.out.format("Required Run Rate - %.2f\n",reqRunRate);
+	}
+
+}
+
+
+class ODIMatch extends Match{
+    
+	public ODIMatch()
+	{
+		
+	}
+	
+	public ODIMatch(int currentScore, float currentOver, int target)
+	{
+		super.setCurrentOver(currentOver);
+		super.setCurrentScore(currentScore);
+		super.setTarget(target);
+	}
+	
+	public float calculateRunrate() {
+		int runsReq = getTarget() - getCurrentScore();
+		float rem = (50 - getCurrentOver());
+		return (float)runsReq/rem;
+	}
+
+	public int calculateBalls() {
+		int balls = (int) ((50 - getCurrentOver())*6);
+		return balls;
+	}
+
+}
+
+class T20Match extends Match{
+
+    public T20Match()
+	{
+		
+	}
+	
+	public T20Match(int currentScore, float currentOver, int target)
+	{
+		super.setCurrentOver(currentOver);
+		super.setCurrentScore(currentScore);
+		super.setTarget(target);
+	}
+	
+	public float calculateRunrate() {
+		int runsReq = getTarget() - getCurrentScore();
+		float rem = (20 - getCurrentOver());
+		return (float)runsReq/rem;
+	}
+
+	public int calculateBalls() {
+		int balls = (int) ((20 - getCurrentOver())*6);
+		return balls;
+	}
+	
+}
+
+
+class TestMatch extends Match{
+
+    public TestMatch()
+	{
+		
+	}
+	
+	public TestMatch(int currentScore, float currentOver, int target)
+	{
+		super.setCurrentOver(currentOver);
+		super.setCurrentScore(currentScore);
+		super.setTarget(target);
+	}
+	
+	public float calculateRunrate() {
+		int runsReq = getTarget() - getCurrentScore();
+		float rem = (90 - getCurrentOver());
+		return (float)runsReq/rem;
+	}
+
+	public int calculateBalls() {
+		int balls = (int) ((90 - getCurrentOver())*6);
+		return balls;
+	}
+
+}
+
+
+public class Main {
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		System.out.println("Enter the Cricket Format");
+		System.out.println("1.ODI");
+		System.out.println("2.T20");
+		System.out.println("3.Test");
+		
+		Scanner sc = new Scanner(System.in);
+		int ch = Integer.parseInt(sc.nextLine());
+		if(ch == 1)
+		{
+			System.out.println("Enter the Current Score");
+			int currentScore = Integer.parseInt(sc.nextLine());
+		    System.out.println("Enter the Current Over");
+		    float currentOver = Float.parseFloat(sc.nextLine());
+		    System.out.println("Enter the Target Score");
+		    int target = Integer.parseInt(sc.nextLine());
+		    
+		    ODIMatch m = new ODIMatch(currentScore, currentOver, target);
+		    m.display(m.calculateRunrate(), m.calculateBalls());
+		    
+		}
+		else if(ch == 2)
+		{
+			System.out.println("Enter the Current Score");
+			int currentScore = Integer.parseInt(sc.nextLine());
+		    System.out.println("Enter the Current Over");
+		    float currentOver = Float.parseFloat(sc.nextLine());
+		    System.out.println("Enter the Target Score");
+		    int target = Integer.parseInt(sc.nextLine());
+		    
+		    T20Match m = new T20Match(currentScore, currentOver, target);
+		    m.display(m.calculateRunrate(), m.calculateBalls());
+		    
+		}
+		else if(ch == 3)
+		{
+			System.out.println("Enter the Current Score");
+			int currentScore = Integer.parseInt(sc.nextLine());
+		    System.out.println("Enter the Current Over");
+		    float currentOver = Float.parseFloat(sc.nextLine());
+		    System.out.println("Enter the Target Score");
+		    int target = Integer.parseInt(sc.nextLine());
+		    
+		    TestMatch m = new TestMatch(currentScore, currentOver, target);
+		    m.display(m.calculateRunrate(), m.calculateBalls());
+		    
+		}
+		else 
+		{
+			System.out.println("Invalid Format type");
+		}
+		
+	        
+	}
+
+}
+
+
+
+Method Overriding; Session 2
+
+1.
+
+import java.util.*;
+
+interface IPlayerStatistics 
+{
+    public void displayPlayerStatistics();
+}
+
+class Player implements IPlayerStatistics
+{
+	private
+	String name; 
+	String teamName; 
+	Integer noOfMatches; 
+	Long totalRunsScored; 
+	Integer noOfWicketsTaken; 
+	
+	public Player()
+	{
+		name = ""; 
+		teamName = ""; 
+		noOfMatches = 0; 
+		totalRunsScored = 0L; 
+		noOfWicketsTaken = 0; 
+	}
+	
+	public Player(String name, String teamName, Integer noOfMatches, Long totalRunsScored, Integer noOfWicketsTaken)
+	{
+		this.name = name;
+		this.teamName = teamName;
+		this.noOfMatches = noOfMatches;
+		this.totalRunsScored = totalRunsScored;
+		this.noOfWicketsTaken = noOfWicketsTaken;
+	}
+	
+	@Override
+	public void displayPlayerStatistics() {
+		System.out.println("Player Details");
+		System.out.println("Player name : " + name);
+		System.out.println("Team name : " + teamName);
+		System.out.println("No of matches : " + noOfMatches);
+		System.out.println("Total runsscored : " + totalRunsScored);
+		System.out.println("No of wickets taken : " + noOfWicketsTaken);
+		
+	}
+	
+}
+
+class Main {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter player name");
+		String name = sc.nextLine();
+		System.out.println("Enter team name");
+		String teamName = sc.nextLine();
+		System.out.println("Enter number of matches played");
+		Integer noOfMatches = Integer.parseInt(sc.nextLine());
+		System.out.println("Enter total runs scored");
+		Long totalRunsScored = Long.parseLong(sc.nextLine());
+		System.out.println("Enter number of wickets taken");
+		Integer noOfWicketsTaken = Integer.parseInt(sc.nextLine());
+		
+		Player p = new Player(name, teamName, noOfMatches, totalRunsScored, noOfWicketsTaken);
+        p.displayPlayerStatistics();
+	}	
+
+}
+
+
+
+2.
+
+import java.util.*;
+
+interface IPlayerStatistics
+{
+     public void displayPlayerStatistics();
+}
+
+class CricketPlayer
+{
+	private
+	String name;
+	String teamName;
+	int noOfMatches;
+	
+	public CricketPlayer()
+	{
+		name = "";
+		teamName = "";
+		noOfMatches = 0;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public String getTeamName() {
+		return teamName;
+	}
+
+
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+
+
+
+	public int getNoOfMatches() {
+		return noOfMatches;
+	}
+
+
+
+	public void setNoOfMatches(int noOfMatches) {
+		this.noOfMatches = noOfMatches;
+	}
+
+
+
+	public CricketPlayer(String name, String teamName, int noOfMatches)
+	{
+		this.name = name;
+		this.teamName = teamName;
+		this.noOfMatches = noOfMatches;
+	}
+	
+}
+	class Bowler extends CricketPlayer implements IPlayerStatistics
+	{
+		private
+		int noOfWickets;
+		
+		public Bowler()
+		{
+			noOfWickets = 0;
+		}
+		
+		public Bowler(int noOfWickets, String name, String teamName, int noOfMatches)
+		{
+			super(name, teamName, noOfMatches);
+			this.noOfWickets = noOfWickets;
+		}
+
+		@Override
+		public void displayPlayerStatistics() {
+			System.out.println("Player name : " + super.getName());
+			System.out.println("Team name : " + super.getTeamName());
+			System.out.println("No of matches : " + super.getNoOfMatches());
+			System.out.println("No of wickets taken : " + noOfWickets);
+		}
+		
+	}
+	
+	class Batsman extends CricketPlayer implements IPlayerStatistics
+	{
+		
+		private 
+		int runs;
+		
+		public Batsman()
+		{
+			runs = 0;
+		}
+		
+		public Batsman(int runs, String name, String teamName, int noOfMatches)
+		{
+			super(name, teamName, noOfMatches);
+			this.runs = runs;
+		}
+
+		@Override
+		public void displayPlayerStatistics() {
+			System.out.println("Player name : " + super.getName());
+			System.out.println("Team name : " + super.getTeamName());
+			System.out.println("No of matches : " + super.getNoOfMatches());
+			System.out.println("Runs scored : " + runs);
+			
+		}
+		
+	}
+	
+	class WicketKeeper extends CricketPlayer implements IPlayerStatistics
+	{
+
+		private
+		int noOfCatches;
+		int noOfStumpings;
+		int runs;
+		int noOfDismissals;
+		
+		public WicketKeeper()
+		{
+			noOfCatches = 0;
+			noOfStumpings = 0;
+			runs = 0;
+			noOfDismissals = 0;
+		}
+		
+		public WicketKeeper(int noOfCatches, int noOfStumpings, int runs, int noOfDismissals, String name, String teamName, int noOfMatches)
+		{
+			super(name, teamName, noOfMatches);
+			this.noOfCatches = noOfCatches;
+			this.noOfStumpings = noOfStumpings;
+			this.runs = runs;
+			this.noOfDismissals = noOfDismissals;
+		}
+		
+		@Override
+		public void displayPlayerStatistics() {
+			System.out.println("Player name : " + super.getName());
+			System.out.println("Team name : " + super.getTeamName());
+			System.out.println("No of matches : " + super.getNoOfMatches());
+			System.out.println("No of catches taken : " + noOfCatches);
+			System.out.println("No of stumpings : " + noOfStumpings);
+			System.out.println("No of dismissals : " + noOfDismissals);
+			System.out.println("Runs scored : " + runs);
+			
+		}
+		
+	}
+	
+	class AllRounder extends CricketPlayer implements IPlayerStatistics
+	{
+
+		private
+		int noOfWickets;
+		int runs;
+		
+		public AllRounder()
+		{
+			noOfWickets = 0;
+			runs = 0;
+		}
+		
+		public AllRounder(int noOfWickets, int runs, String name, String teamName, int noOfMatches)
+		{
+			super(name, teamName, noOfMatches);
+			this.noOfWickets = noOfWickets;
+			this.runs = runs;
+		}
+		
+		@Override
+		public void displayPlayerStatistics() {
+			System.out.println("Player name : " + super.getName());
+			System.out.println("Team name : " + super.getTeamName());
+			System.out.println("No of matches : " + super.getNoOfMatches());
+			System.out.println("Runs scored : " + runs);
+			System.out.println("No of wickets taken : " + noOfWickets);
+			
+		}
+		
+	}
+
+class Main {
+	public static void menu()
+	{
+		System.out.println("Menu\r\n" + 
+				"1.Bowler\r\n" + 
+				"2.Batsman\r\n" + 
+				"3.WicketKeeper\r\n" + 
+				"4.AllRounder\r\n" + 
+				"Enter your choice");
+	}
+	
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		
+		menu();
+		int ch = Integer.parseInt(sc.nextLine());
+		boolean t = true;
+		while(t == true)
+		{
+			if(ch == 1)
+			{
+				System.out.println("Enter the Bowler details");
+				System.out.println("Enter player name");
+				String name = sc.nextLine();
+				System.out.println("Enter team name");
+				String teamName = sc.nextLine();
+				System.out.println("Enter number of matches played");
+				int noOfMatches = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter number of wickets taken");
+				int noOfWicket = Integer.parseInt(sc.nextLine());
+				
+				Bowler b = new Bowler(noOfWicket, name, teamName, noOfMatches);
+				b.displayPlayerStatistics();
+				System.out.println("Do you want to continue?");
+				
+				String in = sc.nextLine();
+				if(in.equals("YES"))
+				{
+					t = true;
+					menu();
+					ch = Integer.parseInt(sc.nextLine());
+				}
+				else
+					t = false;
+			}
+			
+			else if(ch == 2)
+			{
+				
+				System.out.println("Enter the Batsman details");
+				System.out.println("Enter player name");
+				String name = sc.nextLine();
+				System.out.println("Enter team name");
+				String teamName = sc.nextLine();
+				System.out.println("Enter number of matches played");
+				int noOfMatches = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter the runs scored");
+				int runs = Integer.parseInt(sc.nextLine());
+				
+				Batsman  b = new Batsman(runs, name, teamName, noOfMatches);
+				b.displayPlayerStatistics();
+				System.out.println("Do you want to continue?");
+				
+				String in = sc.nextLine();
+				if(in.equals("YES"))
+				{
+					t = true;
+					menu();
+					ch = Integer.parseInt(sc.nextLine());
+				}
+				else
+					t = false;
+			}
+			
+			else if(ch == 3)
+			{
+				System.out.println("Enter the WicketKeeper details");
+				System.out.println("Enter player name");
+				String name = sc.nextLine();
+				System.out.println("Enter team name");
+				String teamName = sc.nextLine();
+				System.out.println("Enter number of matches played");
+				int noOfMatches = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter number of catches taken");
+				int noOfCatches = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter number of stumpings");
+				int noOfStumpings = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter number of dismissals");
+				int noOfDismissals = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter the runs scored");
+				int runs = Integer.parseInt(sc.nextLine());
+				
+				WicketKeeper  b = new WicketKeeper(noOfCatches, noOfStumpings, runs, noOfDismissals , name, teamName, noOfMatches);
+				b.displayPlayerStatistics();
+				System.out.println("Do you want to continue?");
+				
+				String in = sc.nextLine();
+				if(in.equals("YES"))
+				{
+					t = true;
+					menu();
+					ch = Integer.parseInt(sc.nextLine());
+				}
+				else
+					t = false;
+			}
+			
+			else if(ch == 4)
+			{
+				System.out.println("Enter the AllRounder details");
+				System.out.println("Enter player name");
+				String name = sc.nextLine();
+				System.out.println("Enter team name");
+				String teamName = sc.nextLine();
+				System.out.println("Enter number of matches played");
+				int noOfMatches = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter the runs scored");
+				int runs = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter number of wickets taken ");
+				int noOfWickets = Integer.parseInt(sc.nextLine());
+				
+				AllRounder  b = new AllRounder(noOfWickets, runs , name, teamName, noOfMatches);
+				b.displayPlayerStatistics();
+				System.out.println("Do you want to continue?");
+				
+				String in = sc.nextLine();
+				if(in.equals("YES"))
+				{
+					t = true;
+					menu();
+					ch = Integer.parseInt(sc.nextLine());
+				}
+				else
+					t = false;
+			}
+            else
+            {
+                System.out.println("Please Enter a Valid Input");
+                menu();
+                ch = Integer.parseInt(sc.nextLine());
+                
+            }
+		}
+		
+	}	
+
+}
+
+
+Exception Handling; Session 1
+
+3.
+
+  
+import java.util.*; 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+  class Player 
+{
+    private String name,country,skill;
+	Player()
+	{
+	}
+	Player(String name, String country, String skill)
+	{
+		this.name = name;
+		this.country = country;
+		this.skill = skill;
+	}
+	public void setName(String nn)
+	{
+		name=nn;
+	}
+	public void setCountry(String cc)
+	{
+		country=cc;
+	}
+	public void setSkill(String ss)
+	{
+		skill=ss;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getCountry()
+	{
+		return country;
+	}
+	public String getSkill()
+	{
+		return skill;
+	}
+	
+}
+
+
+  class PlayerBO
+{
+    public void displayPlayerDetails(Player player)
+	{
+		System.out.println(player.getName() + ", " + player.getCountry() + ", " + player.getSkill());
+	}
+}
+
+
+class Main
+{
+        public static void main(String[] args) {
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			
+			System.out.println("Enter the number of players");
+			try {
+				int n = Integer.parseInt(br.readLine().trim());
+
+				Player p[] = new Player[n + 1];
+				
+				for(int i = 0; i <= n; i++)
+				{
+					p[i] = new Player();
+				}
+				System.out.println("Do you know the details of the captain? Type Yes / No");
+				String ch = br.readLine().trim();
+				if(ch.equals("Yes"))
+				{
+					System.out.println("Enter name of the captain");
+					String cName = br.readLine().trim();
+					System.out.println("Enter country of the captain");
+					String cCountry = br.readLine().trim();
+					System.out.println("Enter skillset of the captain");
+					String skillSet = br.readLine().trim();
+					
+					p[0] = new Player(cName, cCountry, skillSet);
+					
+					
+					for(int i = 1; i <= n; i++)
+					{
+						System.out.println("Enter name of player " + (i));
+						String name = br.readLine().trim();
+						System.out.println("Enter country of player " + (i));
+						String country = br.readLine().trim();
+						System.out.println("Enter skillset of player " + (i));
+						String skill = br.readLine().trim();
+						
+						p[i] = new Player(name, country, skill);
+						
+					}
+				}
+				else
+				{
+					p[0] = null;
+					for(int i = 1; i <= n; i++)
+					{
+						System.out.println("Enter name of player " + (i));
+						String name = br.readLine().trim();
+						System.out.println("Enter country of player " + (i));
+						String country = br.readLine().trim();
+						System.out.println("Enter skillset of player " + (i));
+						String skill = br.readLine().trim();
+						
+						p[i] = new Player(name, country, skill);
+						
+					}
+				}
+				
+				PlayerBO s = new PlayerBO();
+				if(p[0] == null)
+				{
+					System.out.println("Exception Occured : java.lang.NullPointerException");
+					System.out.println("Captain details not available");
+                    System.out.println("Player Details");
+    				for(int i = 1; i <= n; i++)
+					{
+						s.displayPlayerDetails(p[i]);
+					}
+				}
+				else
+				{
+	                s.displayPlayerDetails(p[0]);
+	                System.out.println("Player Details");
+					for(int i = 1; i <= n; i++)
+					{
+						s.displayPlayerDetails(p[i]);
+					}
+				}
+				
+				
+			}
+			catch (NumberFormatException | IOException e)
+			{	
+				e.printStackTrace();
+			}
+			
+			
+			
+	}
+	}
+
+
+4.
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Scanner;
+class Player 
+{
+  private String name,country,skill;
+    public Player()
+                {}
+                public Player(String name, String country, String skill)
+                {
+                                this.name = name;
+                                this.country = country;
+                                this.skill = skill;
+                }
+                public void setName(String nn)
+                {
+                                name=nn;
+                }
+                public void setCountry(String cc)
+                {
+                                country=cc;
+                }
+                public void setSkill(String ss)
+                {
+                                skill=ss;
+                }
+                public String getName()
+                {
+                                return name;
+                }
+                public String getCountry()
+                {
+                                return country;
+                }
+                public String getSkill()
+                {
+                                return skill;
+                }
+                
+}
+
+
+class Main 
+{
+                public static void main(String args[]) throws Exception
+                {
+                                try
+                                {
+                                                Object obj = Class.forName("Player").newInstance();
+                                                throw new InstantiationException();
+                                                
+                                }catch(InstantiationException e)
+                                {
+                                                BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
+                                                System.out.println("Trying to invoke a no-argument constructor (that is not available) using newInstance method");
+                                                System.out.println("Exception Occured : "+e);
+                                                System.out.println("Enter name of the player");
+                                                String name = br.readLine();
+                                                System.out.println("Enter country of the player");
+                                                String country = br.readLine();
+                                                System.out.println("Enter skillset of the player");
+                                                String skillset = br.readLine();
+                                                System.out.println(name+", "+country+", "+skillset);
+                                }
+                                
+                }
+}
+
+
+
+
+
+StringBuffer; Session 2
+
+2.
+
+import java.io.*;
+import java.util.*;
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+    	//System.out.println("Enter the player details");
+    	String f = sc.nextLine();
+    	
+    	String arr[] = f.split("!");
+    	for(String a : arr)
+    	{
+    		System.out.print(a);
+    	}
+    	
+   	}
+
+}
+
+
+
+3.
+
+import java.io.*;
+import java.util.*;
+
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+    	String f = sc.nextLine();
+    	
+    	int count1 = 0;
+    	int count2 = 0;
+    	
+    	for(int i = 0; i < f.length(); i++)
+    	{
+    		if(f.charAt(i) == 'A' || f.charAt(i) == 'E' || f.charAt(i) == 'I' || f.charAt(i) == 'O' || f.charAt(i) == 'U' || f.charAt(i) == 'a' || f.charAt(i) == 'e' || f.charAt(i) == 'i' || f.charAt(i) == 'o' || f.charAt(i) == 'u')
+    		{
+    			if(i % 2 != 0)
+    			{
+    				count1++;
+    			}
+    			else
+    				count2++;
+    		}
+    	}
+  
+    	if(count1 > count2)
+    		System.out.println("Lucky");
+    	else
+    		System.out.println("Unlucky");
+   	}
+
+}
+
+
+Collection sets ; Session 1
+
+1.
+
+import java.util.*;
+
+class Main
+{
+    public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = Integer.parseInt(sc.nextLine());
+		HashSet <String> hs = new HashSet <>();
+		
+		for(int i = 0; i < n; i++)
+		{
+			String x = sc.nextLine();
+			hs.add(x);
+		}
+		
+		System.out.println(hs.size());
+	}
+}
+
+2.
+
+import java.util.*;
+
+class Main
+{
+    public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = Integer.parseInt(sc.nextLine());
+		HashSet <String> hs = new HashSet <>();
+		
+		for(int i = 0; i < n; i++)
+		{
+			String x = sc.nextLine();
+			hs.add(x);
+		}
+		
+		List <String> li = new ArrayList <String>(hs);
+		Collections.sort(li);
+		for(String i : li)
+		{
+			System.out.println(i);
+		}
+		
+	}
+}
+
+
+3.
+
+import java.util.*;
+
+class Revenue
+{
+    private
+    String revenueCategory;
+	int amount;
+	
+	public Revenue()
+	{
+		revenueCategory = "";
+		amount = 0;
+	}
+	
+	
+	
+	public String getRevenueCategory() {
+		return revenueCategory;
+	}
+
+
+
+	public void setRevenueCategory(String revenueCategory) {
+		this.revenueCategory = revenueCategory;
+	}
+
+
+
+	public int getAmount() {
+		return amount;
+	}
+
+
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
+
+	public Revenue(String revenueCategory, int amount)
+	{
+		this.amount = amount;
+		this.revenueCategory = revenueCategory;
+	}
+}
+
+class Amount implements Comparator<Revenue>
+{
+
+	@Override
+	public int compare(Revenue o1, Revenue o2) {
+		if(o1.amount > o2.amount)
+			return 1;
+		else if(o1.amount < o2.amount)
+			return -1;
+		else
+			return 0;
+	}
+
+	
+	
+}
+
+class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		boolean flag = true;
+		TreeSet <Revenue> ts = new TreeSet<>(new Amount());
+		while(flag)
+		{
+			System.out.println("Enter revenue category");
+			String revenueCategory = sc.nextLine();
+			System.out.println("Enter revenue amount");
+			int amount = Integer.parseInt(sc.nextLine());
+			Revenue r = new Revenue(revenueCategory, amount);
+			
+			ts.add(r);
+			
+			System.out.println("Do you want to continue(yes/no):");
+			String ch = sc.nextLine();
+			
+			if(ch.equals("yes"))
+			{
+				flag = true;
+			}
+			else
+			{
+				flag = false;
+				break;
+			}
+		}
+		
+		System.out.println("Top spending categories");
+		System.out.println(String.format("%-15s%-15s","Category", "Amount"));
+		
+		Iterator it = ts.descendingIterator();
+        int sum = 0;
+		while(it.hasNext())
+		{
+			Revenue r = (Revenue)it.next();
+            sum += r.getAmount();
+			System.out.println(String.format("%-15s%-15s",r.getRevenueCategory(), r.getAmount()));
+		}
+        System.out.println("Total amount earned: " + sum);
+		
+	}
+}
+
+4.
+
+import java.util.*;
+
+class Player 
+{
+    private
+	String name;
+	String skill;
+	
+	public Player()
+	{
+		name = "";
+		skill = "";
+	}
+	
+	public Player(String name, String skill) {
+		this.name = name;
+		this.skill = skill;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSkill() {
+		return skill;
+	}
+
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		Player p = (Player)o;
+		if(name.equals(p.getName()))
+			return true;
+		else
+			return false;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return 1;
+	}
+
+	
+	
+	
+	
+}
+
+class Index implements Comparable<Index>
+{
+	public
+	Character ch;
+	Integer count;
+	TreeSet <Index> ts = new TreeSet <Index>();
+	
+	public Index() {
+		ch = null;
+		count = 0;
+	}
+	
+	
+	public Index(Character ch, Integer count) {
+		this.ch = ch;
+		this.count = count;
+	}
+
+
+	public Character getCh() {
+		return ch;
+	}
+
+
+	public void setCh(Character ch) {
+		this.ch = ch;
+	}
+
+
+	public Integer getCount() {
+		return count;
+	}
+
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+	
+	@Override
+	public int compareTo(Index o) {
+		if((int)ch > (int)o.ch)
+			return 1;
+		else if((int)ch < (int)o.ch)
+			return -1;
+		else
+			return 0;
+	}
+	
+	public TreeSet<Index> buildIndex(HashSet<Player> hs)
+	{
+		int count;
+		Iterator it = hs.iterator();
+		while(it.hasNext())
+		{
+			Player p = (Player) it.next();
+			Character c = p.getName().charAt(0);
+			count = 0;
+			Iterator it1 = hs.iterator();
+			while(it1.hasNext())
+			{
+				Player p1 = (Player) it1.next();
+				Character c1 = p1.getName().charAt(0);
+				if(c == c1)
+				{
+					count++;
+				}
+			}
+			Index i = new Index(c, count);
+			ts.add(i);
+		}
+		
+		return ts;
+		
+		
+		
+	}
+	
+	private Index findIndex(TreeSet<Index> ts,char ch)
+	{
+		
+		return null;
+	}
+	
+	public void displayIndex(TreeSet<Index> ts)
+	{
+		Iterator <Index> it = ts.iterator(); 
+		System.out.println(String.format("%-14s%-15s","Player", "Index"));
+		while(it.hasNext())
+		{
+			Index i1 = (Index)it.next();
+			System.out.println(String.format("%-15s%-15d",i1.ch, i1.count)); 
+		}
+	}
+	
+	
+	
+}
+
+class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		HashSet <Player> hs = new HashSet<Player>();
+		
+		boolean con = true;
+		while(con)
+		{
+			System.out.println("Enter Player Name:");
+			String name = sc.nextLine();
+			System.out.println("Enter Skill:");
+			String skill = sc.nextLine();
+			
+			Player p = new Player(name, skill);
+			if(hs.contains(p))
+			{
+				System.out.println("Player " + name + " already exist");
+			}
+			else
+				hs.add(p);
+			
+			System.out.println("Do you want to continue(yes/no):");
+			String input = sc.nextLine();
+			
+			if(input.equals("yes"))
+				con = true;
+			else
+			{
+				con = false;
+				break;
+			}
+		}
+		
+		Index i = new Index();
+		TreeSet <Index> ts = i.buildIndex(hs);
+		
+		i.displayIndex(ts);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
+
+
+
+5.
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+
+
+class Main
+{
+       public static void main(String args[])
+       {
+              HashSet <String> al=new HashSet <String>();
+              HashSet <String> al1=new HashSet <String>();
+              ArrayList <String> hs=new ArrayList <String>();
+              Scanner sc=new Scanner (System.in);
+              System.out.println("Enter the number of best bowlers in season 4");
+              int n=Integer.parseInt(sc.nextLine());
+              System.out.println("Enter the name of players");
+              for(int i=0;i<n;i++)
+                   al.add(sc.nextLine());
+              System.out.println("Enter the number of best bowlers in season 5");
+              int n1=Integer.parseInt(sc.nextLine());
+              System.out.println("Enter the name of players");
+              for(int i=0;i<n1;i++)
+                   al1.add(sc.nextLine());
+              System.out.println("Player Set 1");
+              Iterator it=al.iterator();
+              while(it.hasNext())
+              {
+                     System.out.println(it.next());
+              }
+              System.out.println("Player Set 2");
+              Iterator it1=al1.iterator();
+              while(it1.hasNext())
+              {
+                     System.out.println(it1.next());
+              }
+              
+              System.out.println("Difference");
+              
+              
+              
+              Iterator<String> it2=al.iterator();
+              Iterator<String> it3=al1.iterator();
+              while(it2.hasNext())
+              {
+                     String s1=it2.next(); 
+                     if(al1.contains(s1)==false)
+                     {
+                           hs.add(s1);
+                     }
+              }
+              Iterator<String> i=hs.iterator();
+              while(i.hasNext())
+              {
+                 System.out.println(i.next());
+              }
+       }
+}
+
+
+6.
+
+import java.util.*;
+
+class Main
+{
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the number of top run scorers in season 4");
+		int n = Integer.parseInt(sc.nextLine());
+		HashSet <String> hs1 = new HashSet <String>();
+		System.out.println("Enter the name of players");
+		for(int i = 0; i < n; i++)
+		{
+			String s = sc.nextLine();
+			hs1.add(s);
+		}
+		
+		System.out.println("Enter the number of top run scorers in season 5");
+		int m = Integer.parseInt(sc.nextLine());
+		HashSet <String> hs2 = new HashSet <String>();
+		System.out.println("Enter the name of players");
+		for(int i = 0; i < m; i++)
+		{
+			String s = sc.nextLine();
+			hs2.add(s);
+		}
+		
+		
+		System.out.println("Player Set 1");
+		Iterator <String> it1 = hs1.iterator();
+		while(it1.hasNext())
+		{
+			System.out.println(it1.next());
+		}
+		
+		
+		System.out.println("Player Set 2");
+		Iterator <String> it2 = hs2.iterator();
+		while(it2.hasNext())
+		{
+			System.out.println(it2.next());
+		}
+		
+		HashSet <String> arr = new HashSet<String>();
+		System.out.println("Union");
+		it1 = hs1.iterator();
+		it2 = hs2.iterator();
+		
+		arr.addAll(hs1);
+		arr.addAll(hs2);
+	    
+        Iterator <String> it3 = arr.iterator();
+		while(it3.hasNext())
+		{
+			System.out.println(it3.next());
+				
+		}
+       		
+		
+	}
+}
+
+
+
+7.
+
+import java.util.*;
+
+class Main
+{
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the number of top run scorers in season 4");
+		int n = Integer.parseInt(sc.nextLine());
+		HashSet <String> hs1 = new HashSet <String>();
+		System.out.println("Enter the name of players");
+		for(int i = 0; i < n; i++)
+		{
+			String s = sc.nextLine();
+			hs1.add(s);
+		}
+		
+		System.out.println("Enter the number of top run scorers in season 5");
+		int m = Integer.parseInt(sc.nextLine());
+		HashSet <String> hs2 = new HashSet <String>();
+		System.out.println("Enter the name of players");
+		for(int i = 0; i < m; i++)
+		{
+			String s = sc.nextLine();
+			hs2.add(s);
+		}
+		
+		
+		System.out.println("Player Set 1");
+		Iterator <String> it1 = hs1.iterator();
+		while(it1.hasNext())
+		{
+			System.out.println(it1.next());
+		}
+		
+		
+		System.out.println("Player Set 2");
+		Iterator <String> it2 = hs2.iterator();
+		while(it2.hasNext())
+		{
+			System.out.println(it2.next());
+		}
+		
+		HashSet <String> arr = new HashSet<String>();
+		System.out.println("Intersection");
+		it1 = hs1.iterator();
+		it2 = hs2.iterator();
+		
+		while(it1.hasNext())
+		{
+			String s = it1.next();
+			if(hs2.contains(s))
+				arr.add(s);
+		}
+	    
+        Iterator <String> it3 = arr.iterator();
+		while(it3.hasNext())
+		{
+			System.out.println(it3.next());
+				
+		}
+       	
+		
+		
+	}
+}
+
+
+
+Collection Sets; Session 2
+
+1.
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+class Match implements Comparable<Match>
+{
+    private
+	Date matchDate;
+	String teamOne;
+	String teamTwo;
+	
+	public Match()
+	{
+		matchDate = null;
+		teamOne = "";
+		teamTwo = "";
+	}
+
+	public Match(Date matchDate, String teamOne, String teamTwo) {
+		super();
+		this.matchDate = matchDate;
+		this.teamOne = teamOne;
+		this.teamTwo = teamTwo;
+	}
+
+	public Date getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public String getTeamOne() {
+		return teamOne;
+	}
+
+	public void setTeamOne(String teamOne) {
+		this.teamOne = teamOne;
+	}
+
+	public String getTeamTwo() {
+		return teamTwo;
+	}
+
+	public void setTeamTwo(String teamTwo) {
+		this.teamTwo = teamTwo;
+	}
+
+	@Override
+	public int compareTo(Match m1) {
+		return matchDate.compareTo(m1.getMatchDate());
+			
+	}
+	
+	
+	
+	
+	
+}
+
+class Main
+{
+    public static void main(String[] args) throws ParseException {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the number of matches");
+		int n = Integer.parseInt(sc.nextLine());
+		
+		TreeSet <Match> hs = (TreeSet<Match>) new TreeSet <Match>().descendingSet();
+		for(int i = 0; i < n; i++)
+		{
+			System.out.println("Enter match date in (MM-dd-yyyy)");
+			String date = sc.nextLine();
+			SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+			Date d = sm.parse(date);
+			
+			System.out.println("Enter Team 1");
+			String teamOne = sc.nextLine();
+			System.out.println("Enter Team 2");
+			String teamTwo = sc.nextLine();
+			
+			Match m = new Match(d, teamOne, teamTwo);
+			hs.add(m);
+		}
+		
+		System.out.println("Match Details");
+		Iterator <Match> it = hs.iterator();
+		
+		while(it.hasNext())
+		{
+			Match m = it.next();
+			System.out.println("Team 1 " + m.teamOne);
+			System.out.println("Team 2 " + m.teamTwo);
+			Date d = m.getMatchDate();
+			SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+			String date = sm.format(d);
+			System.out.println("Match held on " + date);
+		}
+		
+	}
+}
+
+
+2.
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+class Player implements Comparable<Player>
+{
+    private
+	String playerName;
+	String skill;
+	Long capNumber;
+	
+	public Player()
+	{
+		playerName = "";
+		skill = "";
+		capNumber = 0L;
+	}
+
+	public Player(String playerName, String skill, Long capNumber) {
+		super();
+		this.playerName = playerName;
+		this.skill = skill;
+		this.capNumber = capNumber;
+	}
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public String getSkill() {
+		return skill;
+	}
+
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+
+	public Long getCapNumber() {
+		return capNumber;
+	}
+
+	public void setCapNumber(Long capNumber) {
+		this.capNumber = capNumber;
+	}
+
+	@Override
+	public int compareTo(Player p) {
+		return capNumber.compareTo(p.getCapNumber());
+		
+	}
+	
+	
+
+}
+
+class Main
+{
+    public static void main(String[] args) throws ParseException {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter number of players:");
+		int n = Integer.parseInt(sc.nextLine());
+		
+		ArrayList <Player> arr = new ArrayList <Player>();
+		for(int i = 0; i < n; i++)
+		{
+			System.out.println("Enter player " + (i + 1) + " detail");
+			System.out.println("Enter Name");
+			String name = sc.nextLine();
+			System.out.println("Enter Skill");
+			String skill = sc.nextLine();
+			System.out.println("Enter Cap Number");
+			Long capNumber = Long.parseLong(sc.nextLine());
+			
+			Player p = new Player(name, skill, capNumber);
+			arr.add(p);
+		}
+		
+		System.out.println("Player list after sorting by cap number in descending order");
+		
+		Collections.sort(arr);
+		
+		for(int i = arr.size() - 1; i >= 0; i--)
+		{
+			System.out.println(arr.get(i).getPlayerName() + "-" + arr.get(i).getCapNumber());
+		}
+		
+		
+	}
+}
+
+
+Collections Maps; Session 1
+
+2.
+
+import java.util.*;
+
+class Player
+{
+    private
+	String name;
+	String skill;
+	
+	public Player()
+	{
+		name = "";
+		skill = "";
+	}
+
+	public Player(String name, String skill) {
+		super();
+		this.name = name;
+		this.skill = skill;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSkill() {
+		return skill;
+	}
+
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+
+	
+	
+	
+	
+}
+
+class PlayerComparator implements Comparator<Player>
+{
+
+	@Override
+    public int compare(Player o1, Player o2) {
+		int comp1 = o1.getSkill().compareTo(o2.getSkill());
+		int comp2 = o1.getName().compareTo(o2.getName());
+		
+		return (comp1 == 0) ? comp2 : comp1; 
+		
+	}
+	
+}
+
+
+class Main {
+    public static void main(String args[]) {
+    	Scanner sc = new Scanner(System.in);
+    	
+    	ArrayList <Player> arr = new ArrayList<>();
+    	System.out.println("Please provide the number of players to be registered");
+    	int n = Integer.parseInt(sc.nextLine());
+    	HashMap <Integer, String> hm = new HashMap();
+    	hm.put(1, "All Rounder");
+    	hm.put(2, "Batsman");
+    	hm.put(3, "Bowler");
+    	
+    	for(int i = 0; i < n; i++)
+    	{
+    		System.out.println("Please enter player name");
+    		String name = sc.nextLine();
+    		System.out.println("Please select the skill of the player\r\n" + 
+    				"1.All Rounder\r\n" + 
+    				"2.Batsman\r\n" + 
+    				"3.Bowler");
+    		int ch = Integer.parseInt(sc.nextLine());
+    		String skill = "";
+    		if(ch == 1)
+    		{
+    			skill = hm.get(1);
+    		}
+    		else if(ch == 2)
+    			skill = hm.get(2);
+    		else if(ch == 3)
+    			skill = hm.get(3);
+    			
+    		Player p = new Player(name, skill);
+    		
+    		arr.add(p);
+    	}
+    	
+    	
+    	Collections.sort(arr, new PlayerComparator());
+    	System.out.println("Player Details");
+    	for(int i = 0; i < n; i++)
+    	{
+    		System.out.println("Player : " + arr.get(i).getName() +" Skill  : " + arr.get(i).getSkill());
+    	}
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    }
+}
+
+
+3.
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+class Player
+{
+    private
+	String bowlerName;
+	Integer wicketCount;
+	
+	public Player()
+	{
+		bowlerName = "";
+		wicketCount = 0;
+	}
+
+	public Player(String bowlerName, Integer wicketCount) {
+		super();
+		this.bowlerName = bowlerName;
+		this.wicketCount = wicketCount;
+	}
+
+	public String getBowlerName() {
+		return bowlerName;
+	}
+
+	public void setBowlerName(String bowlerName) {
+		this.bowlerName = bowlerName;
+	}
+
+	public Integer getWicketCount() {
+		return wicketCount;
+	}
+
+	public void setWicketCount(Integer wicketCount) {
+		this.wicketCount = wicketCount;
+	}
+	
+	
+}
+
+class Main {
+    public static void main(String args[]) {
+    	Scanner sc = new Scanner(System.in);
+    	ArrayList <Player> arr = new ArrayList<>();
+    	HashMap <String, Integer> hm = new HashMap();
+    	String ch = "yes";
+    	while(ch.equals("yes"))
+    	{
+    		
+    		System.out.println("Enter the player name");
+        	String name = sc.nextLine();
+        	System.out.println("Enter wickets - seperated by \"|\" symbol.");
+        	String wickets = sc.nextLine();
+        	
+        	
+        	String[] wicket = wickets.split("\\|");
+        	int wicketCount = wicket.length;
+        	
+        	
+        	Player p = new Player(name, wicketCount);
+        	hm.put(name, wicketCount);
+        	System.out.println("Do you want to add another player (yes/no)");
+        	ch = sc.nextLine();
+    	}
+    	
+    	String search = "yes";
+    	while(search.equals("yes"))
+    	{
+    		System.out.println("Enter the player name to search");
+    		String s = sc.nextLine();
+    		if(hm.containsKey(s) == false)
+    			System.out.println("No player found with the name " + s);
+    		else
+    		{
+    			System.out.println("Player name : " + s);
+    			System.out.println("Wicket Count : " + hm.get(s));
+    		}
+    		
+    		System.out.println("Do you want to search another player (yes/no)");
+    		search = sc.nextLine();
+    		if(search.equals("no"))
+    			break;
+    			
+    	}
+    	
+    		
+    	
+    }
+}
+
+
+4.
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+class Player 
+{
+    private
+	String name;
+	String team;
+	String skill;
+	
+	public Player()
+	{
+		name = "";
+		team = "";
+		skill = "";
+	}
+
+	public Player(String name, String team, String skill) {
+		super();
+		this.skill = skill;
+		this.name = name;
+		this.team = team;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	public String getSkill() {
+		return skill;
+	}
+
+	public void setSkill(String skill) {
+		this.skill = skill;
+	}
+
+	
+
+	
+}
+
+
+class Main {
+    public static void main(String args[]) throws Exception {
+    	Scanner sc = new Scanner(System.in);
+    	
+    	TreeMap <Integer, Player> tm = new TreeMap();
+    	
+    	System.out.println("Enter the number of players");
+    	int n = Integer.parseInt(sc.nextLine());
+    	
+    	for(int i = 0; i < n; i++)
+    	{
+    		System.out.println("Enter the details of the player " + (i + 1));
+    		int capNumber = Integer.parseInt(sc.nextLine());
+    		String name = sc.nextLine();
+    		String team = sc.nextLine();
+    		String skill = sc.nextLine();
+    		
+    		Player p = new Player(name, team, skill);
+    		tm.put(capNumber, p);
+    	}
+    	
+    	Set <Map.Entry <Integer, Player>> st = tm.entrySet();
+    	
+    	System.out.println("Player Details");
+    	for(Map.Entry e : st)
+		{
+			Player p = (Player) e.getValue();
+			System.out.println(e.getKey() + "--" + p.getName() + "--" + p.getTeam() + "--" + p.getSkill());
+		}
+    	
+    	
+    	
+    }
+}
+
+
+Collections Maps; Session 2
+
+1.
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+class Bowler
+{
+    private
+    String bowlerName;
+	
+	public Bowler()
+	{
+		bowlerName = "";
+	}
+
+	public Bowler(String bowlerName) {
+		super();
+		this.bowlerName = bowlerName;
+	}
+
+	public String getBowlerName() {
+		return bowlerName;
+	}
+
+	public void setBowlerName(String bowlerName) {
+		this.bowlerName = bowlerName;
+	}
+
+	
+}
+
+class Wicket
+{
+	private
+	String playerName;
+	Bowler bowler;
+	
+	public Wicket()
+	{
+		playerName = "";
+		bowler = new Bowler();
+	}
+
+	public Wicket(String playerName, Bowler bowler) {
+		super();
+		this.playerName = playerName;
+		this.bowler = bowler;
+	}
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public Bowler getBowler() {
+		return bowler;
+	}
+
+	public void setBowler(Bowler bowler) {
+		this.bowler = bowler;
+	}
+	
+	
+	
+}
+
+class Main {
+    public static void main(String args[]) {
+    	Scanner sc = new Scanner(System.in);
+    	//ArrayList <Bowler> arr = new ArrayList<>();
+    	HashMap <String, String> hm = new HashMap();
+    	String ch = "yes";
+    	while(ch.equals("yes"))
+    	{
+    		
+    		System.out.println("Enter the player name");
+        	String name = sc.nextLine();
+        	System.out.println("Enter wickets - seperated by \"|\" symbol");
+        	String wickets = sc.nextLine();
+
+        	Bowler p = new Bowler(name);
+        	hm.put(name, wickets);
+        	System.out.println("Do you want to add another player (yes/no)");
+        	ch = sc.nextLine();
+    	}
+    	
+    	String search = "yes";
+    	while(search.equals("yes"))
+    	{
+    		System.out.println("Enter the player name to search");
+    		String s = sc.nextLine();
+    		if(hm.containsKey(s) == false)
+    			System.out.println("No player found with the name " + s);
+    		else
+    		{
+    			System.out.println("Player Name : " + s);
+    			System.out.println("Wickets :");
+    			String[] wicket = hm.get(s).split("\\|");
+            	for(String i : wicket)
+            	{
+            		System.out.println(i);
+            	}
+    		}
+    		
+    		System.out.println("Do you want to search another player (yes/no)");
+    		search = sc.nextLine();
+    		if(search.equals("no"))
+    			break;
+    			
+    	}
+    	
+    	   	
+    }
+}
+
+
+
+2.
+
+import java.util.*;
+
+class Histogram
+{
+    TreeMap <Integer, Integer> hs = new TreeMap();
+	static int first = 0;
+	static int second = 0;
+	static int third = 0;
+	static int fourth = 0;
+	
+	private TreeMap<Integer, Integer> bins()
+	{
+		hs.put(10, first);
+		hs.put(20, second);
+		hs.put(30, third);
+		hs.put(40, fourth);
+		return hs;
+	}
+	
+	public void addScore(Integer i)
+	{
+		
+		TreeMap <Integer, Integer> hs = bins();
+		
+		if(i <= 10)
+			hs.put(10, ++first);
+		else if(i <= 20)
+			hs.put(20, ++second);
+		else if(i <= 30)
+			hs.put(30, ++third);
+		else if(i <= 40)
+			hs.put(40, ++fourth);
+	}
+	
+	public void displayHistogram()
+	{
+		System.out.println("Histogram");
+		Set <Map.Entry <Integer, Integer>> st = hs.entrySet();
+		
+		for(Map.Entry e : st)
+		{
+			System.out.print(e.getKey() + " : ");
+			int n = (int) e.getValue();
+			for(int i = 0; i < n; i++)
+				System.out.print("*");
+			
+			System.out.println("");
+		}
+		
+		
+	}
+	
+}
+
+class Main {
+    public static void main(String args[]) {
+    	Scanner sc = new Scanner(System.in);
+    	int n = Integer.parseInt(sc.nextLine());
+    	Histogram h = new Histogram();
+    	for(int i = 0; i < n; i++)
+    	{
+    		int x = Integer.parseInt(sc.nextLine());
+    		
+    		h.addScore(x);
+    	}
+    	
+    	h.displayHistogram();
+    	
+    	
+    }
+}
+
+
+
+JDBC Intro; Session 1
+
+1.
+
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+
+
+
+public class Skill {
+    private Long skilld;
+    private String skillName;
+
+    public Skill(Long skilld, String skillName) {
+        this.skilld = skilld;
+        this.skillName = skillName;
+    }
+
+    public Long getSkilld() {
+        return skilld;
+    }
+
+    public void setSkilld(Long skilld) {
+        this.skilld = skilld;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+   
+    
+    @Override
+    public String toString() {
+        return  skillName ;
+    }
+    
+
+}
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+
+public class SkillDAO {
+
+  public List<Skill> listAllSkills() throws ClassNotFoundException, SQLException{
+       ResourceBundle rb= ResourceBundle.getBundle("mysql");
+      
+      String url=rb.getString("db.url");
+      String user=rb.getString("db.username");
+      String pass=rb.getString("db.password");
+      Class.forName("com.mysql.jdbc.Driver");
+      Connection con = DriverManager.getConnection(url,user,pass);
+       String query = "select * from skill";
+    PreparedStatement st = con.prepareStatement(query);
+   
+    
+    ResultSet rs = st.executeQuery();
+    List<Skill> l = new ArrayList<Skill>();
+    while(rs.next())
+    {
+        Long skillid = rs.getLong(1);
+        String skillName = rs.getString(2);
+        Skill s = new Skill(skillid, skillName);
+        l.add(s);
+    }
+      return l;
+  }
+  
+}
+
+
+public class Main {
+    
+    public static void main(String ags[])throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("List of all skills"); 
+        List<Skill> skillList = null;
+        SkillDAO skillIns = new SkillDAO();
+ 
+        skillList = skillIns.listAllSkills();
+        
+        Collections.sort(skillList, new Comparator<Skill>() {
+    @Override
+    public int compare(Skill s1, Skill s2) {
+        return s1.getSkillName().compareToIgnoreCase(s2.getSkillName());
+    }
+});
+         int i = 1;
+        for(Skill s: skillList)
+        {
+            System.out.println(i++ + ") " + s.getSkillName());
+        }
+       
+
+      
+        
+    }
+}
+
+
+2.
+
+
+
+
+public class Player {
+    
+    private Long playerId;
+    private String name;
+    private String country;
+    private Skill skill;
+    
+
+    public Player() {
+    }
+    
+    public Player(Long playerId,String name, String country,Skill skill) {
+        this.playerId = playerId;
+        this.name = name;
+        this.country = country;
+        this.skill = skill;
+    }
+    
+    public Long getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(Long playerId) {
+        this.playerId = playerId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+     
+    
+    public Skill getSkill() {
+        return skill;
+    }
+
+    public void setSkill(Skill skill) {
+        this.skill = skill;
+    }
+    
+    @Override
+    public String toString() {
+        
+        return String.format("%-15s%-30s%-30s%-15s",playerId,name ,country,this.skill);
+    }
+    
+}
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
+public class PlayerDAO {
+    
+    
+    
+    public List<Player> getAllPlayers() throws ClassNotFoundException, SQLException{
+        ResourceBundle rb= ResourceBundle.getBundle("mysql");
+        
+        String url=rb.getString("db.url");
+        String user=rb.getString("db.username");
+        String pass=rb.getString("db.password");
+        Class.forName("com.mysql.jdbc.Driver");
+        List <Player > l = new ArrayList<Player> ();
+        Connection con = DriverManager.getConnection(url,user,pass);
+         String query = "select id, name, country, skill_id from player";
+        PreparedStatement ps = con.prepareStatement(query);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        while(rs.next())
+        {
+            Long id = rs.getLong(1);
+            String name = rs.getString(2);
+            String country = rs.getString(3);
+            Long skill_id = rs.getLong(4);
+            SkillDAO s1 = new SkillDAO();
+            Skill s = s1.getSkillByID(skill_id);
+            
+            Player p = new Player(id, name, country, s);
+            l.add(p);
+        }
+        return l;
+        
+
+
+
+    }
+    
+    
+}
+
+
+
+
+public class Skill {
+    
+    private Long skillId;
+    private String skillName;
+
+    public Skill(Long skillId, String skillName) {
+        this.skillId = skillId;
+        this.skillName = skillName;
+    }
+
+    public Long getSkillId() {
+        return skillId;
+    }
+
+    public void setCityId(Long skillId) {
+        this.skillId = skillId;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+   
+    
+    @Override
+    public String toString() {
+        return   skillName ;
+    }
+    
+}
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+public class SkillDAO {
+    
+    public Skill getSkillByID(Long id) throws ClassNotFoundException, SQLException {
+        ResourceBundle rb= ResourceBundle.getBundle("mysql");
+        
+        String url=rb.getString("db.url");
+        String user=rb.getString("db.username");
+        String pass=rb.getString("db.password");
+          Connection con = DriverManager.getConnection(url,user,pass);
+          Long skill_id = 0L;
+          String skill_name = "";
+        String query = "select * from skill where id = ?";
+        PreparedStatement ps1 = con.prepareStatement(query);
+         ps1.setLong(1, id);       
+        ResultSet rs = ps1.executeQuery();
+            while(rs.next())
+            {
+                skill_id = rs.getLong(1);
+                skill_name = rs.getString(2);
+            }
+        Skill s = new Skill(skill_id, skill_name);
+        
+        return s;
+
+
+    }
+    
+}
+
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+
+
+public class Main {
+    public static void main(String ags[])throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("List of all player and their skill"); 
+        System.out.println(String.format("%-15s%-30s%-30s%-15s","Id", "Name", "Country","Skill"));
+        List<Player> playerList = null;
+        PlayerDAO playerIns = new PlayerDAO();
+      
+      playerList = playerIns.getAllPlayers();
+      Collections.sort(playerList, new Comparator<Player>() {
+    @Override
+    public int compare(Player s1, Player s2) {
+        return s1.getName().compareToIgnoreCase(s2.getName());
+    }
+});
+      for(Player p : playerList)
+      {
+          System.out.println(String.format("%-15s%-30s%-30s%-15s",p.getPlayerId(), p.getName(), p.getCountry(), p.getSkill().getSkillName()));
+      }
+        
+    }
+}
+
+
+
+3.
+
+
+
+
+
+
+
+public class City {
+  private Long cityId;
+  private String cityName;
+
+  public City(Long cityId, String cityName) {
+      this.cityId = cityId;
+      this.cityName = cityName;
+  }
+
+  public Long getSkilld() {
+      return cityId;
+  }
+
+  public void setCityId(Long cityId) {
+      this.cityId = cityId;
+  }
+
+  public String getSkillName() {
+      return cityName;
+  }
+
+  public void setSkillName(String cityName) {
+      this.cityName = cityName;
+  }
+ 
+  
+  @Override
+  public String toString() {
+      return  cityName ;
+  }
+  
+
+}
+
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+
+public class CityDAO {
+
+  public List<City> listAllCity() throws ClassNotFoundException, SQLException{
+       ResourceBundle rb= ResourceBundle.getBundle("mysql");
+      
+      String url=rb.getString("db.url");
+      String user=rb.getString("db.username");
+      String pass=rb.getString("db.password");
+      Class.forName("com.mysql.jdbc.Driver");
+      Connection con = DriverManager.getConnection(url,user,pass);
+
+     //fill your code
+      
+  }
+  
+}
+
+
+
+public class Skill {
+    private Long skilld;
+    private String skillName;
+
+    public Skill(Long skilld, String skillName) {
+        this.skilld = skilld;
+        this.skillName = skillName;
+    }
+
+    public Long getSkilld() {
+        return skilld;
+    }
+
+    public void setSkilld(Long skilld) {
+        this.skilld = skilld;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+   
+    
+    @Override
+    public String toString() {
+        return  skillName ;
+    }
+    
+
+}
+
+
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+
+public class SkillDAO {
+
+  public List<Skill> listAllSkills() throws ClassNotFoundException, SQLException{
+       ResourceBundle rb= ResourceBundle.getBundle("mysql");
+      
+      String url=rb.getString("db.url");
+      String user=rb.getString("db.username");
+      String pass=rb.getString("db.password");
+      Class.forName("com.mysql.jdbc.Driver");
+      Connection con = DriverManager.getConnection(url,user,pass);
+   //fill your code
+      
+  }
+  
+}
+
+
+
+public class Player {
+	private Long playerId;
+	  private String playerName;
+
+	  public Player(Long playerId, String playerName) {
+	      this.playerId = playerId;
+	      this.playerName = playerName;
+	  }
+
+	  public Long getPlayerId() {
+	      return playerId;
+	  }
+
+	  public void setPlayerId(Long playerId) {
+	      this.playerId = playerId;
+	  }
+
+	  public String getPlayerName() {
+	      return playerName;
+	  }
+
+	  public void setPlayerName(String playerName) {
+	      this.playerName = playerName;
+	  }
+	 
+	  
+	  @Override
+	  public String toString() {
+	      return  playerName ;
+	  }
+	  
+}
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class PlayerDAO {
+	public List<Player> listAllPlayer() throws ClassNotFoundException, SQLException{
+		ResourceBundle rb= ResourceBundle.getBundle("mysql");
+
+		String url=rb.getString("db.url");
+		String user=rb.getString("db.username");
+		String pass=rb.getString("db.password");
+		Class.forName("com.mysql.jdbc.Driver");
+        List <Player> l = new ArrayList<Player>();
+		Connection con = DriverManager.getConnection(url,user,pass);
+	    String query =  "select player.id, player.name from player inner join team on player.team_id = team.id inner join city on team.home_city_id = city.id where city.id = ?";
+		PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, 2);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        while(rs.next())
+        {
+            Player p = new Player(rs.getLong(1), rs.getString(2));
+            l.add(p);
+        }
+        
+        return l;
+	}
+}
+
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+
+public class Main {
+    
+    public static void main(String ags[])throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("List of all Player from Kolkata city"); 
+        List<Player> playerList = null;
+        PlayerDAO playerIns = new PlayerDAO();
+     
+         int i = 1;
+        playerList = playerIns.listAllPlayer();
+        
+        Collections.sort(playerList, new Comparator<Player>() {
+    @Override
+    public int compare(Player s1, Player s2) {
+        return s1.getPlayerName().compareToIgnoreCase(s2.getPlayerName());
+    }
+});
+        for(Player p : playerList)
+        {
+            System.out.println(i++ + ") " + p.getPlayerName());
+        }
+        
+    }
+}
+
+
